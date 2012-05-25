@@ -41,11 +41,11 @@ class Core_Hook implements BusinessObjectModel {
 			return;
 		}
 		
-		$dispatch = new $this->controller($this->module, $this->method, $this->queryString);
-		
+		$dispatch = new $this->controller();
+						
 		if ((int)method_exists($this->controller, $this->method)) {
 			call_user_func_array(array($dispatch, $this->method), $this->queryString);
-		}
+		}		
 	}
 
 	/**

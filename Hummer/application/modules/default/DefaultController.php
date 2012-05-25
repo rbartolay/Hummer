@@ -1,6 +1,6 @@
 <?php
 class DefaultController extends Controller {
 	public function index() {
-		echo "hellow";
+		new Core_Template("default", "default");
 	}
 }
