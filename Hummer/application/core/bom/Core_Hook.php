@@ -25,12 +25,7 @@ class Core_Hook implements BusinessObjectModel {
 		if(Configuration::isSiteOffline()) {
 			new Core_Template("clean", "error", "siteMaintenance");
 			return;
-		}
-		
-		$url = new Core_URL();
-		if(Core_ModuleSecurity::isModule($url->getModule())) {
-			require_once Configuration::getModulesPath() . Core_ModuleSecurity::getModuleDirectory($url->getModule()) . DS . $this->controller . ".php";
-		}
+		}		
 		
 		// Check first if the controller exists in the controllers
 		if (!class_exists($this->controller)) {

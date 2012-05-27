@@ -2,6 +2,7 @@
 class Dispatcher {
 	
 	private $core_constants = array('DomainNames');
+	private $core_controllers = array('DefaultController');
 	private $core_bom = array(
 					'Core_Database', 
 					'Core_Email', 
@@ -41,6 +42,14 @@ class Dispatcher {
 	
 	public function getCoreConstants() {
 		return $this->core_constants;
+	}
+	
+	public function isCoreController() {
+		return in_array($this->model_name, $this->core_controllers);
+	}
+	
+	public function getCoreControllers() {
+		return $this->core_controllers;
 	}
 	
 	public function isCoreBom() {

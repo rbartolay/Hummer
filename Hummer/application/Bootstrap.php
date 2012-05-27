@@ -41,10 +41,14 @@ $hook = new Core_Hook();
 
 function __autoload($className) {
 	
-	$dispatcher = new Dispatcher($className);	
-	
+	$dispatcher = new Dispatcher($className);
+		
 	if($dispatcher->isCoreInterface()) {
 		require_once Configuration::getInterfacePath() . $className . ".interface.php";
+	}
+	
+	if($dispatcher->isCoreController()) {
+		require_once Configuration::getControllersPath() . $className . ".php";
 	}
 	
 	if($dispatcher->isCoreBom()) {

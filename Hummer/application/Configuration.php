@@ -20,7 +20,7 @@ class Configuration {
 	/**
 	 * This path will be used in accessing css, js, ajax, images files.
 	 */
-	private static $url = "http://localhost";
+//	private static $url = "http://" $_SERVER['HTTP_HOST'];
 	
 	const DEFAULT_CONTROLLER = "default";
 	
@@ -70,8 +70,8 @@ class Configuration {
 		$this->url = $url;
 	}
 
-	public static function getURLPath() {
-		return self::$url;
+	public static function getURLPath() {		
+		return Core_URL::getBASEURL();
 	}
 
 	public static function getBasePath() {
