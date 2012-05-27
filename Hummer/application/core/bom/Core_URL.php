@@ -31,18 +31,16 @@ class Core_URL implements BusinessObjectModel {
 		}
 	}
 
-	function GetDomain($url)
-	{
-		$nowww = ereg_replace('www\.','',$url);
-		$domain = parse_url($nowww);
-		if(!empty($domain["host"]))
-		{
-			return $domain["host"];
-		} else
-		{
-			return $domain["path"];
+	public static function getDomain()	{
+		$noprefix = str_replace(Configuration::getDomainPrefixes(),'',$_SERVER['HTTP_HOST']);
+		$name = str_replace(Configuration::getDomainSuffixes(),'',$noprefix);
+		
+		$domain = parse_url($name);
+		if(!empty($domain["host"]))	{
+			return strtolower($domain["host"]);
+		} else	{
+			return strtolower($domain["path"]);
 		}
-
 	}
 
 	public static function getCleanURL() {

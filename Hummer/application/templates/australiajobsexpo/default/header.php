@@ -113,7 +113,7 @@ $loading_time = Core_Utilities::startTimer();
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>
-					<div class="logo">
+					<div class="logo">AUSTRALIA JOBS EXPO<br>
 						<a href="/" title="Logo"><img
 							src="<?php echo Configuration::getImagePath() . "logo.jpg"; ?>"
 							alt="Logo" title="Logo" width="159" />

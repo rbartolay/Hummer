@@ -16,11 +16,16 @@ class Configuration {
 	 * @var unknown_type
 	 */
 	private static $siteOffline = false;
-
+	
 	/**
-	 * This path will be used in accessing css, js, ajax, images files.
+	 * Domain prefix and domain suffix are the possible tags that are going to be used
+	 * on the multisite, this is essential for the business logic to manage the url 
+	 * parsing very well.
+	 * 	 
+	 * @var array
 	 */
-//	private static $url = "http://" $_SERVER['HTTP_HOST'];
+	private static $domain_prefix = array("www.");
+	private static $domain_suffix = array(".com", ".im", ".com.ph");
 	
 	const DEFAULT_CONTROLLER = "default";
 	
@@ -50,7 +55,15 @@ class Configuration {
 	public static function isSiteOffline() {
 		return self::$siteOffline;
 	}
-
+	
+	public static function getDomainPrefixes() {
+		return self::$domain_prefix;
+	}
+	
+	public static function getDomainSuffixes() {
+		return self::$domain_suffix;
+	}
+	
 	public static function getDatabaseSettings($name) {
 		return self::$databaseSettings[$name];
 	}

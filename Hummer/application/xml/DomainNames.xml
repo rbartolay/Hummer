@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<domain_names>
-	<domain_name id="1" name="localhost">
-		<names>
-			<name>localhost</name>
-		</names>
-		<template>default</template>
-	</domain_name>
-	<domain_name id="2" name="australiajobsexpo">
-		<names>
-			<name>www.australiajobsexpo.com</name>
-			<name>australiajobsexpo.com</name>
-		</names>
-		<template>main</template>		
-	</domain_name>
-	<domain_name id="2" name="canadajobsgo">
-		<names>
-			<name>www.canadajobsgo.com</name>
-			<name>canadajobsgo.com</name>
-		</names>
-		<template>main</template>		
-	</domain_name>
-</domain_names>
+<domains>
+	<domain id="1" title="Local" name="localhost" template="canadajobsgo" />
+	<domain id="2" title="Australia Jobs Expo" name="australiajobsexpo" template="australiajobsexpo" />		
+	<domain id="3" title="Canada Jobs Go" name="canadajobsgo" template="canadajobsgo" />	
+</domains>
