@@ -22,6 +22,11 @@ class Core_Hook implements BusinessObjectModel {
 
 	public function callController() {
 		
+		if(Configuration::isSiteOffline()) {
+			new Core_Template("clean", "error", "siteMaintenance");
+			return;
+		}
+		
 		$url = new Core_URL();
 		if(Core_ModuleSecurity::isModule($url->getModule())) {
 			require_once Configuration::getModulesPath() . Core_ModuleSecurity::getModuleDirectory($url->getModule()) . DS . $this->controller . ".php";
@@ -29,14 +34,14 @@ class Core_Hook implements BusinessObjectModel {
 		
 		// Check first if the controller exists in the controllers
 		if (!class_exists($this->controller)) {
-			$template = new Core_Template("account", "error", "pageNotFound");
+			$template = new Core_Template("default", "error", "pageNotFound");
 			$template->setAttribute("page", $this->module);
 			return;
 		}
 		
 		// Checks if the method doesnt exists in the controller
 		if(!method_exists($this->controller, $this->method)) {
-			$template = new Core_Template("account", "error", "pageNotFound");
+			$template = new Core_Template("default", "error", "pageNotFound");
 			$template->setAttribute("page", $this->method);
 			return;
 		}

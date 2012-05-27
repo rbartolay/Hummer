@@ -14,7 +14,7 @@
  * @author LLBautista
  *
  */
-class XMLCreate implements BusinessObjectModel {
+class Core_XMLCreate implements BusinessObjectModel {
 	private $name = null;
 	private $domDocument = null;
 	private $root = null;
@@ -106,7 +106,7 @@ class XMLCreate implements BusinessObjectModel {
 	 * Save xml file or update existing file
 	 */
 	public function saveXMLFile() { 
-		if($this->isXMLFileExists()) {
+		if($this->isXMLFileExists()) {			
 			$this->domDocument->save($this->url.$this->filename.".xml");
 			//change file permission after save
 			chmod($this->url.$this->filename.".xml", 0777);
@@ -132,3 +132,70 @@ class XMLCreate implements BusinessObjectModel {
 		fclose($handle);
 	}
 }
+
+
+
+/**
+ * EXAMPLES
+ * Create a basic xml data and create a new file of it
+
+private function fnDomCreate()	{
+	$arr = array(array('isbn'=>'1001', 'pubdate'=>'1943-01-01', 'title'=>'The Fountainhead',
+			'author'=>'Ayn Rand', 'price'=>'300'),
+			array('isbn'=>'1002', 'pubdate'=>'1954-01-01',
+					'title'=>'The Lord of the Rings', 'author'=>'J.R.R.Tolkein',
+					'price'=>'500'),
+			array('isbn'=>'1003', 'pubdate'=>'1982-01-01', 'title'=>'The Dark Tower',
+					'author'=>'Stephen King', 'price'=>'200'));
+
+	$dom = new DOMDocument();
+	$library = $dom->createElement('library');
+	$dom->appendChild($library);
+
+	for($i=0;$i<3;$i++)
+	{
+	$book = $dom->createElement('book');
+	$book->setAttribute('isbn',$arr[$i]['isbn']);
+	$book->setAttribute('pubdate',$arr[$i]['pubdate']);
+
+	//$prop = $dom->createElement('title', $arr[$i]['title']);
+	$prop = $dom->createElement('title');
+	$text = $dom->createCDATASection($arr[$i]['title']);
+	$prop->appendChild($text);
+	$book->appendChild($prop);
+
+	$prop = $dom->createElement('author', $arr[$i]['author']);
+	$book->appendChild($prop);
+	$prop = $dom->createElement('price', $arr[$i]['price']);
+			$book->appendChild($prop);
+			$library->appendChild($book);
+	}
+	//header("Content-type: text/xml");
+	$dom->save('C:\Users\Ryan Bartolay\\git\\Hummer\\Hummer\\resources\\library.xml');
+}
+
+//Edit Last Book Title
+	private function fnDOMEditElementSeq()	{
+
+	$dom = new DOMDocument();
+		$dom->load('C:\Users\Ryan Bartolay\\git\\Hummer\\Hummer\\resources\\library.xml');
+		$food = $dom->getElementsByTagName('book');
+
+		foreach ($food as $elem) {
+		echo $elem->getElementsByTagName('title')->item(0)->nodeValue = "Ryan";
+		echo $elem->getElementsByTagName('author')->item(0)->nodeValue;
+		echo $elem->getElementsByTagName('price')->item(0)->nodeValue;
+		echo "<br>";
+		}
+
+		var_dump($dom->saveXML());
+
+		//$dom->save('C:\Users\Ryan Bartolay\\git\\Hummer\\Hummer\\resources\\library.xml');
+		//$library->childNodes->item($cnt-1)->getElementsByTagName('title')->item(0)->nodeValue .= ' Series';
+				// 2nd way #$library->getElementsByTagName('book')->item($cnt-1)->getElementsByTagName('title')->item(0)->nodeValue .= ' Series';
+					
+				//3rd Way
+				//$library->childNodes->item($cnt-1)->childNodes->item(0)->nodeValue .= ' Series';
+		//header("Content-type: text/xml");
+		//echo $dom->saveXML();
+}*/

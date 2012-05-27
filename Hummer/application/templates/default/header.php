@@ -2,71 +2,24 @@
 global $loading_time;
 $loading_time = Core_Utilities::startTimer();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-
-
-<link rel="stylesheet"
-	href="<?php echo Configuration::getCSSPath() . "default.css"; ?>" />
-<script type="text/javascript"
-	src="<?php echo Configuration::getJSPath(); ?>jquery-1.7.2.js"></script>
-</head>
-<body>
-
-
-
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-<title>Hammer</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="image_src"
-	href="<?php echo Configuration::getImagePath() . "logo.jpg"; ?>" />
-<meta property="og:image"
-	content="<?php echo Configuration::getImagePath() . "logo.jpg"; ?>" />
-<link href="/cm_files/30251_2670.ico" rel="shortcut icon"
-	type="image/x-icon" />
-<meta http-equiv="Content-Language" content="en" />
-<meta name="description" content="Home: Default Description" />
-<meta name="keywords"
-	content="Home: jobs, recruitment, vacancies, job board" />
-<meta name="Rating" content="General" />
-<meta name="revisit-after" content="1 Days" />
-<meta name="robots" content="all" />
-</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+	<head>
+		<title>Hammer</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="image_src"
+			href="<?php echo Configuration::getImagePath() . "logo.jpg"; ?>" />
+		<meta property="og:image"
+			content="<?php echo Configuration::getImagePath() . "logo.jpg"; ?>" />
+		<link href="/cm_files/30251_2670.ico" rel="shortcut icon"
+			type="image/x-icon" />
+		<link rel="stylesheet"
+			href="<?php echo Configuration::getCSSPath() . "default.css"; ?>" />
+	</head>
 <body class="bodyCandidate">
 	<a style="display: none;" class="registration-act"
 		href="javascript: void(0)"></a>
 
-	<div id="registration" class="popupForm">
-		Jo
-		<div class="closeLink"></div>
-
-		<div class="comtab">
-
-			<div class="tabPopup" id="t1">Candidate registration</div>
-
-
-
-			<div class="tabPopup" id="t2">Employer registration</div>
-
-
-
-		</div>
-
-		<div class="registrationPopup" id="r1"
-			content-url="/candidate/registration?formId=0&source=%2F"></div>
-
-
-
-		<div class="registrationPopup" id="r2"
-			content-url="/employer/registration?formId=0"></div>
-
-
-
-	</div>
 
 	<div id="signInPopup" class="popupForm">
 
@@ -2432,15 +2385,6 @@ $loading_time = Core_Utilities::startTimer();
 
 		</div>
 
-		<div class="bot">
-
-			Home
-
-			<div class="clear">
-				<!-- | -->
-			</div>
-
-		</div>
 
 		<div class="seoBlock">
 

@@ -12,7 +12,8 @@ class Dispatcher {
 					'Core_Session',
 					'Core_ModuleSecurity', 
 					'Core_Template', 
-					'Core_Utilities', 
+					'Core_Utilities',
+					'Core_XMLCreate',
 					'Core_XMLParser', 
 					'Core_URL');
 	private $core_dao = array();
