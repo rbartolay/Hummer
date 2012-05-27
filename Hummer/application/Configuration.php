@@ -15,7 +15,7 @@ class Configuration {
 	 * pages to site maintenance page if this is true.
 	 * @var unknown_type
 	 */
-	private static $siteOffline = false;
+	private static $siteOffline = true;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used
@@ -120,7 +120,8 @@ class Configuration {
 	}
 
 	public static function getImagePath() {
-		return self::getURLPath() . '/resources/images/';
+		global $domains;
+		return self::getURLPath() . '/resources/images/' . $domains->retrieveTemplateByDomainName(Core_URL::getDomain()) . "/";
 	}
 
 	public static function getBusinessObjectModelsPath() {

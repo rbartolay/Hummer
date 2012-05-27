@@ -33,11 +33,20 @@ if(!defined("DS")) {
 }
 
 /**
+ * Instantiate the global domain names, this method is essential as the variable is 
+ * being used in multiple classes from the framework up to the modules
+ */
+global $domains;
+
+require_once Configuration::getConstantsPath() . 'DomainNames.constants.php';
+$domains = new DomainNames();
+
+
+/**
  * Get controller hook
  */
 require_once Configuration::getBusinessObjectModelsPath() . 'Core_Hook.php';
-$hook = new Core_Hook();
-
+new Core_Hook();
 
 function __autoload($className) {
 	

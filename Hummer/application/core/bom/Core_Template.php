@@ -19,11 +19,11 @@ class Core_Template {
 	 * @param string $action - the page the template needs for the content
 	 */
 	public function __construct($template_name, $module, $action = "index") {		
+		global $domains;
 		$this->template_name = $template_name;
 		$this->module = $module;
 		$this->action = $action;
 		
-		$domains = new DomainNames();
 		$this->domain_template = $domains->retrieveTemplateByDomainName(Core_URL::getDomain());
 	}
 	

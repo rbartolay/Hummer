@@ -4,4 +4,3 @@ class DefaultController extends Controller {
 		new Core_Template("default", "default");
 	}
 }
-?>
