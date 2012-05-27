@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain_names>
+	<domain_name id="1" name="localhost">
+		<names>
+			<name>localhost</name>
+		</names>
+		<template>default</template>
+	</domain_name>
+	<domain_name id="2" name="australiajobsexpo">
+		<names>
+			<name>www.australiajobsexpo.com</name>
+			<name>australiajobsexpo.com</name>
+		</names>
+		<template>main</template>		
+	</domain_name>
+	<domain_name id="2" name="canadajobsgo">
+		<names>
+			<name>www.canadajobsgo.com</name>
+			<name>canadajobsgo.com</name>
+		</names>
+		<template>main</template>		
+	</domain_name>
+</domain_names>

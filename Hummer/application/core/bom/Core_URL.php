@@ -31,6 +31,20 @@ class Core_URL implements BusinessObjectModel {
 		}
 	}
 	
+	function GetDomain($url)
+	{
+		$nowww = ereg_replace('www\.','',$url);
+		$domain = parse_url($nowww);
+		if(!empty($domain["host"]))
+		{
+			return $domain["host"];
+		} else
+		{
+			return $domain["path"];
+		}
+	
+	}
+	
 	public static function getCleanURL() {
 		$url = explode("?", @substr($_SERVER['REQUEST_URI'], 1));
 		return $url[0];

@@ -1,7 +1,7 @@
 <?php
 class Dispatcher {
 	
-	private $core_constants = array();
+	private $core_constants = array('DomainNames');
 	private $core_bom = array(
 					'Core_Database', 
 					'Core_Email', 

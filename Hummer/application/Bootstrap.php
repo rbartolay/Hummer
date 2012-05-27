@@ -56,7 +56,7 @@ function __autoload($className) {
 	}
 	
 	if($dispatcher->isCoreConstant()) {
-		require_once Configuration::getConstantsPath() . $className . ".constant.php";
+		require_once Configuration::getConstantsPath() . $className . ".constants.php";
 	}
 	
 	if($dispatcher->isCoreHelper()) {
