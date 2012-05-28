@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains>
+	<domain id="1">
+		<name>localhost</name>
+		<template>default</template>
+		<date_created></date_created>
+		<date_modified></date_modified>
+	</domain>
+	<domain id="1">
+		<name>www.bpocareerhub.com</name>
+		<template>main</template>
+		<date_created></date_created>
+		<date_modified></date_modified>
+	</domain>
+</domains>
