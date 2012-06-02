@@ -1,38 +1,31 @@
 <?php
 class JobLayout {
+	
 	public static function formatList($list) {
 		$html = "<table>";
-		
+
 		foreach($list as $element) {
 			$html.= "<tr>";
-			$html.= "	<td>";
 			$html.= self::formatElement($element);
-			$html.= "	</td>";
 			$html.= "</tr>";
-		}		
-		
+		}
+
 		$html.= "</table>";
 		return $html;
 	}
-	
-	public static function formatElement($element) {		
-		$html = "<table>";
-		$html.= "<tr>";
+
+	public static function formatElement($element) {
+		$relative_time = RelativeTime::getInstance();
 		
-		foreach($element as $key => $value) {
+		$html = "";
 			
-			$html.= "<td>";
-			$html.= $key;
-			$html.= "</td>";
-			
-			$html.= "<td>";
-			$html.= $value;
-			$html.= "</td>";
-			
-		}
-		
-		$html.= "</tr>";
-		$html.= "</table>";
+		$html.= "<td>";
+		$html.= "<a href='". $element->url ."' id='jobtitle'>" . $element->jobtitle . "</a><br>";
+		$html.= "<span id='company'>" . $element->company . "</span> <span id='location'>" . $element->city . ", " . $element->state . "</span><br>";
+		$html.= $element->snippet . "<br>";		
+		$html.= "Posted <a href='#' title='". Calendar::formatDateAndTime($element->unix_date) ."'>" . $relative_time->getTextForSQLDate(date("Y-m-d h:i:s", $element->unix_date)) . "</a>";
+		$html.= "</td>";
+
 		return $html;
 	}
 }

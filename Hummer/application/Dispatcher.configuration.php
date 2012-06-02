@@ -1,10 +1,10 @@
 <?php
 class Dispatcher {
 	
-	private $bom = array('IndeedBom');
+	private $bom = array('IndeedBom', 'CareerjetBom');
 	private $dao = array();
 	
-	private $core_constants = array('DomainNames', 'APIIndeed');
+	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet');
 	private $core_controllers = array('DefaultController', 'CronController');
 	private $core_bom = array(
 					'Core_Database', 
@@ -22,7 +22,7 @@ class Dispatcher {
 					'Core_URL',
 					'Core_CURL');
 	private $core_dao = array('JobsDao');
-	private $core_helpers = array('URL', 'Calendar', 'JobLayout');
+	private $core_helpers = array('URL', 'Calendar', 'JobLayout', 'RelativeTime');
 	private $core_interface = array('AbstractFactory', 'BusinessObjectModel', 'Comparable', 'CRUD', 'Singleton');
 	private $core_abstract = array('Controller', 'DataAccessObject', 'XML', 'Pagination', 'APIParser');
 	

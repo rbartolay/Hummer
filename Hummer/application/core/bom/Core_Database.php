@@ -268,7 +268,28 @@ class Core_Database extends Pagination implements Singleton {
 
 		return $results;
 	}
-
+	
+	/**
+	* Gets an array of objects from the result of the SQL query.
+	* Object properties are based on the names of the SQL columns.
+	*
+	* @param sql
+	* @returns
+	*/
+	public function getResultSetSingleColumn($sql, $column_name) {
+		$rs = $this->query($sql);
+	
+		$results = array();
+	
+		while ($row = mysql_fetch_object($rs)) {
+			$results[] = $row->$column_name;
+		}
+	
+		mysql_free_result($rs);
+	
+		return $results;
+	}
+	
 	/**
 	 * The same result with getResultSetObjectArray but set a primary key for the array index.
 	 * this is essential if the resultset is unique for every element

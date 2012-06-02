@@ -21,8 +21,8 @@ abstract class APIParser extends Core_CURL {
 	}
 	
 	protected function parseContents() {
-		$xml_parser = new Core_XMLParser(file_get_contents(Configuration::getXMLPath()."Indeed.xml"));
-		#$xml_parser = new Core_XMLParser($this->getContents());		
+		#$xml_parser = new Core_XMLParser(file_get_contents(Configuration::getXMLPath()."Indeed.xml"));
+		$xml_parser = new Core_XMLParser($this->getContents());		
 		$xml_parser->Parse();
 		return $xml_parser->document;
 	}

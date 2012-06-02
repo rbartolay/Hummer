@@ -9,7 +9,7 @@ class APIIndeed extends APIParser {
 	// callback	Callback. The name of a javascript function to use as a callback to which the results of the search are passed. This only applies when format=json. For security reasons, the callback name is restricted letters, numbers, and the underscore character.
 	private $callback = null;
 	// q	Query. By default terms are ANDed. To see what is possible, use our advanced search page to perform a search and then check the url for the q value.
-	private $q = "java";
+	private $q = "Oracle";
 	// l	Location. Use a postal code or a "city, state/province/region" combination.
 	private $l = "";
 	// sort	Sort by relevance or date. Default is relevance.
@@ -19,11 +19,11 @@ class APIIndeed extends APIParser {
 	// st	Site type. To show only jobs from job boards use 'jobsite'. For jobs from direct employer websites use 'employer'.
 	private $st = null;
 	// jt	Job type. Allowed values: "fulltime", "parttime", "contract", "internship", "temporary".
-	private $jt = null;
+	private $jt = 'jobsite';
 	// start	Start results at this result number, beginning with 0. Default is 0.
-	private $start = null;
+	private $start = 0;
 	// limit	Maximum number of results returned per query. Default is 10
-	private $limit = null;
+	private $limit = 100;
 	// fromage	Number of days back to search.
 	private $frompage = null;
 	// highlight	Setting this value to 1 will bold terms in the snippet that are also present in q. Default is 0.
@@ -43,6 +43,7 @@ class APIIndeed extends APIParser {
 	
 	public function __construct() {
 		$this->setDomain("http://api.indeed.com/ads/apisearch");
+		$this->setUserip($_SERVER['REMOTE_ADDR']);
 	}
 	
 	public function getURL() {		
@@ -83,125 +84,124 @@ class APIIndeed extends APIParser {
 		return $results;
 	}
 	
-	
 	public function getPublisher() {
-		return publisher;
+		return $this->publisher;
 	}
 	public function setPublisher($publisher) {
-		$this->publisher = publisher;
+		$this->publisher = $publisher;
 	}
 	public function getVersion() {
-		return version;
+		return $this->version;
 	}
 	public function setVersion($version) {
-		$this->version = version;
+		$this->version = $version;
 	}
 	public function getFormat() {
-		return format;
+		return $this->format;
 	}
 	public function setFormat($format) {
-		$this->format = format;
+		$this->format = $format;
 	}
 	public function getCallback() {
-		return callback;
+		return $this->callback;
 	}
 	public function setCallback($callback) {
-		$this->callback = callback;
+		$this->callback = $callback;
 	}
 	public function getQuery() {
-		return query;
+		return $this->query;
 	}
 	public function setQuery($query) {
-		$this->query = query;
+		$this->query = $query;
 	}
 	public function getLocation() {
-		return location;
+		return $this->location;
 	}
 	public function setLocation($location) {
-		$this->location = location;
+		$this->location = $location;
 	}
 	public function getSort() {
-		return sort;
+		return $this->sort;
 	}
 	public function setSort($sort) {
-		$this->sort = sort;
+		$this->sort = $sort;
 	}
 	public function getRadius() {
-		return radius;
+		return $this->radius;
 	}
 	public function setRadius($radius) {
-		$this->radius = radius;
+		$this->radius = $radius;
 	}
 	public function getSite_type() {
-		return site_type;
+		return $this->site_type;
 	}
 	public function setSite_type($site_type) {
-		$this->site_type = site_type;
+		$this->site_type = $site_type;
 	}
 	public function getJob_type() {
-		return job_type;
+		return $this->job_type;
 	}
 	public function setJob_type($job_type) {
-		$this->job_type = job_type;
+		$this->job_type = $job_type;
 	}
 	public function getStart() {
-		return start;
+		return $this->start;
 	}
 	public function setStart($start) {
-		$this->start = start;
+		$this->start = $start;
 	}
 	public function getLimit() {
-		return limit;
+		return $this->limit;
 	}
 	public function setLimit($limit) {
-		$this->limit = limit;
+		$this->limit = $limit;
 	}
 	public function getFrompage() {
-		return frompage;
+		return $this->frompage;
 	}
 	public function setFrompage($frompage) {
-		$this->frompage = frompage;
+		$this->frompage = $frompage;
 	}
 	public function getHighlight() {
-		return highlight;
+		return $this->highlight;
 	}
 	public function setHighlight($highlight) {
-		$this->highlight = highlight;
+		$this->highlight = $highlight;
 	}
 	public function getFilter() {
-		return filter;
+		return $this->filter;
 	}
 	public function setFilter($filter) {
-		$this->filter = filter;
+		$this->filter = $filter;
 	}
 	public function getLatlong() {
-		return latlong;
+		return $this->latlong;
 	}
 	public function setLatlong($latlong) {
-		$this->latlong = latlong;
+		$this->latlong = $latlong;
 	}
 	public function getCountry() {
-		return country;
+		return $this->country;
 	}
 	public function setCountry($country) {
-		$this->country = country;
+		$this->country = $country;
 	}
 	public function getChannel() {
-		return channel;
+		return $this->channel;
 	}
 	public function setChannel($channel) {
-		$this->channel = channel;
+		$this->channel = $channel;
 	}
-	public function getUserid() {
-		return userid;
+	public function getUserip() {
+		return $this->userip;
 	}
-	public function setUserid($userid) {
-		$this->userid = userid;
+	public function setUserip($userip) {
+		$this->userip = $userip;
 	}
 	public function getUseragent() {
-		return useragent;
+		return $this->useragent;
 	}
 	public function setUseragent($useragent) {
-		$this->useragent = useragent;
+		$this->useragent = $useragent;
 	}
 }
