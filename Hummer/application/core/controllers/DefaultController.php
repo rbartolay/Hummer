@@ -1,6 +1,12 @@
 <?php
 class DefaultController extends Controller {
+	
+	
 	public function index() {
-		new Core_Template("default", "default");
+		
+		$IBom = new IndeedBom();		
+		$template = new Core_Template("default", "default");
+		$template->setAttribute("records", $IBom->getAllRecords());
+		
 	}
 }

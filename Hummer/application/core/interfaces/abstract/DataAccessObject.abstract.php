@@ -14,7 +14,7 @@ abstract class DataAccessObject {
 	 * Gets the database default instance
 	 */
 	public function __construct($database = 'default') {
-		$this->Connection = Database::getInstance($database);
+		$this->Connection = Core_Database::getInstance($database);
 	}
 	
 	public function getConnection() {

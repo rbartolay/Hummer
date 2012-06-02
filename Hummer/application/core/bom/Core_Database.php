@@ -66,7 +66,7 @@ class Core_Database extends Pagination implements Singleton {
 			die('Unrecognized database configuration: ' . $name);
 		}
 
-		$db = new Database($settings);
+		$db = new Core_Database($settings);
 		self::$instances[$name] = $db;
 
 		return $db;
@@ -76,22 +76,20 @@ class Core_Database extends Pagination implements Singleton {
 	 * Creates a new BCH_Database object.
 	 */
 	function __construct($settings) {
-		$this->Log = new Logger(Configuration::getLogsDatabasePath(). Utilities::getDateLogFile(), Logger::INFO);
+		
 		$db = $settings['host'] . ':' . $settings['port'];
 		$un = $settings['username'];
 		$pw = $settings['password'];
 			
 		$this->link = mysql_connect($db, $un, $pw);
 
-		if (!$this->link) {
-			$this->Log->LogFATAL("Could not connect: " . mysql_error());
+		if (!$this->link) {			
 			die('Could not connect: ' . mysql_error());
 		}
 
 		$selected = mysql_select_db($settings['databaseName'], $this->link);
 
-		if (!$selected) {
-			$this->Log->LogFATAL("Could not select: " . mysql_error());
+		if (!$selected) {			
 			die('Could not select: ' . mysql_error());
 		}
 	}
@@ -133,6 +131,9 @@ class Core_Database extends Pagination implements Singleton {
 	 * @return 
 	 */
 	public function query($sql) {
+		if(Configuration::isDebug()) {
+			echo $sql;
+		}
 		$this->sql = $sql;		
 		if($this->isPagination()) {
 			 $sql.= $this->getSQLLimitString();
@@ -146,8 +147,7 @@ class Core_Database extends Pagination implements Singleton {
 				return mysql_query($sql, $this->link);
 			}
 		} catch (Exception $e) {
-			return false;
-			$this->Log->LogFATAL("Exception : " . $e->getMessage());
+			return false;			
 			die("BCH_Database.query.bom: Error in SQL query: " . $this->error() . " Exception : " . $e->getMessage());
 		}
 	}
@@ -318,8 +318,7 @@ class Core_Database extends Pagination implements Singleton {
 		$rs = $this->query($sql);
 
 		if (!$rs) {
-			die('Error in SQL query: ' . mysql_error());
-			$this->Log->LogERROR("QUERY : " . mysql_error());
+			die('Error in SQL query: ' . mysql_error());			
 		}
 
 		$row = mysql_fetch_array($rs);
@@ -355,9 +354,7 @@ class Core_Database extends Pagination implements Singleton {
 		try {
 			$this->query("ROLLBACK");
 			$this->transaction = false;
-			$this->Log->LogERROR("ROLLBACK TRANSACTION: " . mysql_error());
 		} catch (Exception $e) {
-			$this->Log->LogERROR("ROLLBACK TRANSACTION Exception : " . $e->getMessage());
 			die($e->getLine() . " " . $e->getMessage());
 		}
 	}
@@ -371,8 +368,7 @@ class Core_Database extends Pagination implements Singleton {
 		} catch (Exception $e) {
 			$Response->success = false;
 			$Response->message = $e->getLine() . " " . $e->getMessage();
-			$this->rollbackTransaction();
-			$this->Log->LogERROR("COMMIT TRANSACTION Exception : " . $e->getMessage());
+			$this->rollbackTransaction();			
 		}
 		return $Response;
 	}
@@ -381,8 +377,7 @@ class Core_Database extends Pagination implements Singleton {
 	 * Returns the last executed query error/ warning, returns FALSE if theres no error
 	 * @returns
 	 */
-	private function error() {
-		$this->Log->LogError(mysql_error());
+	private function error() {		
 		return mysql_error();
 	}
 }

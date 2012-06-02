@@ -15,7 +15,9 @@ class Configuration {
 	 * pages to site maintenance page if this is true.
 	 * @var unknown_type
 	 */
-	private static $siteOffline = true;
+	private static $siteOffline = false;
+
+	private static $debug = true;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used
@@ -48,12 +50,16 @@ class Configuration {
 			'host' => 'localhost',
 			'username' => 'root',
 			'password' => '',
-			'databaseName'=> 'bchv2',
+			'databaseName'=> 'hummer',
 			'port' => 3306)
 	);
 
 	public static function isSiteOffline() {
 		return self::$siteOffline;
+	}
+
+	public static function isDebug() {
+		return self::$debug;
 	}
 	
 	public static function getDomainPrefixes() {
@@ -106,7 +112,19 @@ class Configuration {
 	public static function getModulesPath() {
 		return self::getApplicationPath() . "modules" . DS;
 	}
+	
+	public static function getModelsPath() {
+		return self::getApplicationPath() . "models" . DS;
+	}
 
+	public static function getModelBomPath() {
+		return self::getModelsPath() . "bom" . DS;
+	}
+	
+	public static function getModelDaoPath() {
+		return self::getModelsPath() . "dao" . DS;
+	}
+	
 	public static function getXMLPath() {
 		return self::getApplicationPath() . "xml" . DS;
 	}

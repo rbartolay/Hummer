@@ -51,7 +51,19 @@ new Core_Hook();
 function __autoload($className) {
 	
 	$dispatcher = new Dispatcher($className);
-		
+	
+	if(class_exists($className)) {
+		return;
+	}
+	
+	if($dispatcher->isBom()) {
+		require_once Configuration::getModelBomPath() . $className . '.php';
+	}
+	
+	if($dispatcher->isDao()) {
+		require_once Configuration::getModelDaoPath() . $className . '.php';
+	}
+	
 	if($dispatcher->isCoreInterface()) {
 		require_once Configuration::getInterfacePath() . $className . ".interface.php";
 	}

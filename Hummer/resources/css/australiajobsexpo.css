@@ -9,7 +9,7 @@ background-image:url(images/bg.gif);
 background-position:top left;
 background-repeat:repeat-x;
 }
-body{
+body, table{
 width:1000px;
 margin:0 auto;
 font-family:Arial, Helvetica, sans-serif;

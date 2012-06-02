@@ -1,8 +1,11 @@
 <?php
 class Dispatcher {
 	
-	private $core_constants = array('DomainNames');
-	private $core_controllers = array('DefaultController');
+	private $bom = array('IndeedBom');
+	private $dao = array();
+	
+	private $core_constants = array('DomainNames', 'APIIndeed');
+	private $core_controllers = array('DefaultController', 'CronController');
 	private $core_bom = array(
 					'Core_Database', 
 					'Core_Email', 
@@ -16,16 +19,33 @@ class Dispatcher {
 					'Core_Utilities',
 					'Core_XMLCreate',
 					'Core_XMLParser', 
-					'Core_URL');
-	private $core_dao = array();
-	private $core_helpers = array('URL');
+					'Core_URL',
+					'Core_CURL');
+	private $core_dao = array('JobsDao');
+	private $core_helpers = array('URL', 'Calendar', 'JobLayout');
 	private $core_interface = array('AbstractFactory', 'BusinessObjectModel', 'Comparable', 'CRUD', 'Singleton');
-	private $core_abstract = array('Controller', 'DataAccessObject', 'XML', 'Pagination');
+	private $core_abstract = array('Controller', 'DataAccessObject', 'XML', 'Pagination', 'APIParser');
 	
 	private $model_name = null;
 	
 	public function __construct($model_name) {
 		$this->model_name = $model_name;
+	}
+	
+	public function isBom() {
+		return in_array($this->model_name, $this->bom);
+	}
+	
+	public function getBoms() {
+		return $this->bom;
+	}
+	
+	public function isDao() {
+		return in_array($this->model_name, $this->dao);
+	}
+	
+	public function getDaos() {
+		return $this->dao;
 	}
 	
 	public function isModule() {

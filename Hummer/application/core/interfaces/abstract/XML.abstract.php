@@ -28,9 +28,8 @@ abstract class XML {
 		return $this->parser->document;
 	}
 
-	protected function getParsedXMLObjectArray() {
-		$xml = $this->getParsedXML();
-
+	protected function getParsedXMLObjectArray() {		
+		$xml = $this->getParsedXML();		
 		$xml_obj_array = array();
 
 		if(count($xml->tagChildren) > 0) {

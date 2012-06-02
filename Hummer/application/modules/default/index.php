@@ -1,5 +1,3 @@
 <?php 
-echo "<pre>";
-print_r($_SERVER);
-echo "</pre>";
+echo JobLayout::formatList($records);
 ?>
