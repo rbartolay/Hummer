@@ -2,12 +2,14 @@
 abstract class APIParser extends Core_CURL {
 	
 	// domain the default web service url name on where we are going to get the data
+	protected $url;
 	private $domain;
 	private $contents = null;
 	
 	public function getContents() {
+		echo $this->url;
 		if($this->contents == null) {
-			$this->contents = $this->download($this->getURL());	
+			$this->contents = $this->download($this->url);	
 		}
 		return $this->contents;
 	}
@@ -21,7 +23,7 @@ abstract class APIParser extends Core_CURL {
 	}
 	
 	protected function parseContents() {
-		#$xml_parser = new Core_XMLParser(file_get_contents(Configuration::getXMLPath()."Indeed.xml"));
+		#$xml_parser = new Core_XMLParser(file_get_contents(Configuration::getXMLPath()."Monster.xml"));
 		$xml_parser = new Core_XMLParser($this->getContents());		
 		$xml_parser->Parse();
 		return $xml_parser->document;
@@ -67,8 +69,6 @@ abstract class APIParser extends Core_CURL {
 		
 		return $child;
 	}
-	// method that will get the url to be parsed
-	abstract function getURL();
 	
 	// method that will get all the parameters for the api
 	abstract function getClassQueryString();

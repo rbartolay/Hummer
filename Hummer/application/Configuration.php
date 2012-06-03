@@ -17,7 +17,7 @@ class Configuration {
 	 */
 	private static $siteOffline = false;
 
-	private static $debug = true;
+	private static $debug = false;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used

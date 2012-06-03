@@ -21,22 +21,17 @@ class IndeedBom implements BusinessObjectModel {
 			if(in_array($record->jobkey, $jobkeys)) {
 				$condition = array('jobkey' => $record->jobkey);
 				echo "Update " . $record->jobkey . "<br>";				
-				unset($record->formattedlocation, $record->date, $record->onmousedown, $record->formattedlocationfull, $record->jobkey);
+				unset($record->formattedlocation, $record->date, $record->onmousedown, $record->formattedlocationfull, $record->jobkey, $record->formattedrelativetime);
 				var_dump($this->jDao->updateRecord($record, $condition));				
 			} else {
-				$record->date_posted = $this->formatDate($record->date);
+				$record->date_posted = Calendar::formatStringToSQLDateAndTime($record->date);
 				$record->date_created = Calendar::getSQLDateTime();
 				echo "Insert " . $record->jobkey . "<br>";
-				unset($record->formattedlocation, $record->date, $record->onmousedown, $record->formattedlocationfull);
+				unset($record->formattedlocation, $record->date, $record->onmousedown, $record->formattedlocationfull, $record->formattedrelativetime);
 				var_dump($this->jDao->insertRecord($record));
 			}
 		}
-	}
-	
-	public function formatDate($date) {
-		$dt = new DateTime($date);
-		return $dt->format("Y-m-d h:i:s");
-	}
+	}	
 	
 	public function getAllJobsKey() {		
 		return $this->jDao->retrieveJobKeysByAPISourceId(1);
