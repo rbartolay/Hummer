@@ -3,7 +3,7 @@
  * get the main configuration
  */
 require_once ROOT . DS . "application". DS ."Configuration.php";
-
+header('Content-type: text/html; charset=utf-8');
 /**
  * get the dispatcher configuration
  */

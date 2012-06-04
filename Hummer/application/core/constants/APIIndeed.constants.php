@@ -37,18 +37,17 @@ class APIIndeed extends APIParser {
 	// chnl	Channel Name: Group API requests to a specific channel
 	private $chnl = null;
 	// userip	The IP number of the end-user to whom the job results will be displayed. This field is required.
-	private $userip = null;
+	private $userip;
 	// useragent	The User-Agent ($browser) of the end-user to whom the job results will be displayed. This can be obtained from the "User-Agent" HTTP request header from the end-user. This field is required.
 	private $useragent = null;
 	
 	public function __construct() {
 		$this->setDomain("http://api.indeed.com/ads/apisearch");
-		$this->setUserip($_SERVER['REMOTE_ADDR']);
+		$this->userip = $_SERVER['REMOTE_ADDR'];
+		
+		$this->url = $this->getDomain() . $this->getClassQueryString();
 	}
 	
-	public function getURL() {		
-		return $this->getDomain() . $this->getClassQueryString();
-	}
 	
 	public function getClassQueryString() {		
 		

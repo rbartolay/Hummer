@@ -40,6 +40,11 @@ class Calendar extends XML {
 		
 	}
 	
+	public static function formatStringToSQLDateAndTime($date) {
+		$dt = new DateTime($date);
+		return $dt->format("Y-m-d h:i:s");
+	}
+	
 	public static function getUnixTimeStamp() {
 		return time();
 	}

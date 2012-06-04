@@ -1,10 +1,10 @@
 <?php
 class Dispatcher {
 	
-	private $bom = array('IndeedBom', 'CareerjetBom');
+	private $bom = array('JobsBom', 'IndeedBom', 'CareerjetBom', 'MonsterBom');
 	private $dao = array();
 	
-	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet');
+	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster');
 	private $core_controllers = array('DefaultController', 'CronController');
 	private $core_bom = array(
 					'Core_Database', 
