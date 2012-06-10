@@ -13,8 +13,7 @@ class CareerjetBom implements BusinessObjectModel {
 	
 	public function insertRecords($records) {
 		$urls = $this->jDao->retrieveURLByAPISourceId(2);
-		var_dump($records);
-		die();		
+		
 		foreach($records->jobs as $record) {
 			
 			

@@ -2,12 +2,17 @@
 class JobsDao extends DataAccessObject {
 	
 	public function retrieveAll() {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date from jobs order by date_posted desc";
+		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs order by date_posted desc";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
 	public function retrieveAllByAPISourceId($api_id) {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date from jobs where api_source_id = " . $api_id . " order by date_posted desc";
+		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where api_source_id = " . $api_id . " order by date_posted desc";
+		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
+	}
+	
+	public function retrieveAllByCompanyName($company) {
+		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where company = '". $company ."'";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	

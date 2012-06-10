@@ -16,8 +16,8 @@ class Configuration {
 	 * @var unknown_type
 	 */
 	private static $siteOffline = false;
-
-	private static $debug = false;
+	
+	private static $debug = true;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used
@@ -53,11 +53,22 @@ class Configuration {
 			'databaseName'=> 'hummer',
 			'port' => 3306)
 	);
+	
+	/**
+	private static $databaseSettings = array(
+			'default' =>  array(
+					'host' => 'localhost',
+					'username' => 'canadajo_multi',
+					'password' => 'cpsess3406937680',
+					'databaseName'=> 'canadajo_multisite',
+					'port' => 3306)
+	);
+	*/
 
 	public static function isSiteOffline() {
 		return self::$siteOffline;
 	}
-
+	
 	public static function isDebug() {
 		return self::$debug;
 	}
@@ -112,19 +123,7 @@ class Configuration {
 	public static function getModulesPath() {
 		return self::getApplicationPath() . "modules" . DS;
 	}
-	
-	public static function getModelsPath() {
-		return self::getApplicationPath() . "models" . DS;
-	}
 
-	public static function getModelBomPath() {
-		return self::getModelsPath() . "bom" . DS;
-	}
-	
-	public static function getModelDaoPath() {
-		return self::getModelsPath() . "dao" . DS;
-	}
-	
 	public static function getXMLPath() {
 		return self::getApplicationPath() . "xml" . DS;
 	}
@@ -142,6 +141,18 @@ class Configuration {
 		return self::getURLPath() . '/resources/images/' . $domains->retrieveTemplateByDomainName(Core_URL::getDomain()) . "/";
 	}
 
+	public static function getModelsPath() {
+		return self::getApplicationPath() . "models" . DS;
+	}
+	
+	public static function getModelBomPath() {
+		return self::getModelsPath() . "bom" . DS;
+	}
+	
+	public static function getModelDaoPath() {
+		return self::getModelsPath() . "dao" . DS;
+	}
+	
 	public static function getBusinessObjectModelsPath() {
 		return self::getCOREPath() . "bom" . DS;
 	}

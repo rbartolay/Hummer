@@ -11,6 +11,10 @@ class JobsBom implements BusinessObjectModel {
 		return $this->jDao->retrieveAll();
 	}
 	
+	public function getAllJobsByCompanyName($company) {
+		return $this->jDao->retrieveAllByCompanyName($company);
+	}
+	
 	private function formatJobs($jobs) {
 		foreach($jobs as $job) {
 			

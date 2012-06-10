@@ -2,6 +2,7 @@
 class CronController extends Controller {
 	
 	public function executeFeedIndeed() {
+		echo "?";
 		$indeed = new APIIndeed();
 		$iBom = new IndeedBom();
 		$iBom->insertRecords($indeed->getResults());
