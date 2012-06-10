@@ -13,7 +13,8 @@ class Dispatcher {
 	private $core_controllers = array(
 					'DefaultController', 
 					'CronController',
-					'CompaniesController'
+					'CompaniesController',
+					'SearchController'
 					);
 	private $core_bom = array(
 					'Core_Database', 
@@ -34,7 +35,7 @@ class Dispatcher {
 					'JobsDao',
 					'CompaniesDao'
 					);
-	private $core_helpers = array('URL', 'Calendar', 'JobLayout', 'RelativeTime', 'CompaniesLayout');
+	private $core_helpers = array('URL', 'Calendar', 'JobLayout', 'RelativeTime', 'CompaniesLayout', 'Login', 'Form');
 	private $core_interface = array('AbstractFactory', 'BusinessObjectModel', 'Comparable', 'CRUD', 'Singleton');
 	private $core_abstract = array('Controller', 'DataAccessObject', 'XML', 'Pagination', 'APIParser');
 	

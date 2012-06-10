@@ -2,8 +2,11 @@
 class DefaultController extends Controller {
 		
 	public function index() {	
-		$jBom = new JobsBom();		
+		$jBom = new JobsBom();
+		$cBom = new CompaniesBom();
 		$template = new Core_Template("default", "default");
-		$template->setAttribute("records", $jBom->getAllJobs());		
+		$template->setAttribute("records", $jBom->getAllJobs());
+		$template->setAttribute("companies", $cBom->getRecentActiveCompanies());
+		$template->setAttribute("trending_jobs", $jBom->getTrendingJobs());	
 	}
 }

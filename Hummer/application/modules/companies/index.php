@@ -1,11 +1,8 @@
-<table width="100%">
-	<tr>
-		<td width="250px"><h3>Companies</h3></td>
-		<td align="right"><?php echo CompaniesLayout::getAlphabeticalPagination($current); ?></td>
-	</tr>
-</table>
+<h1>Companies</h1><br>
 
-
+<?php echo "<table align='center'><tr><td>" . CompaniesLayout::getAlphabeticalPagination($current) . "</td></tr></table>"; ?>
+<div class="container">
 <?php
 echo CompaniesLayout::formatList($companies);
 ?>
+</div>

@@ -132,4 +132,8 @@ class Core_Utilities {
 		}
 		return substr($string, 0, $count) . "...";		
 	}
+	
+	public static function highlightString($match, $string){
+		return str_ireplace($match, "<span style='background:yellow'>" . strtoupper($match) . "</span>", $string);
+	}
 }

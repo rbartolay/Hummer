@@ -57,9 +57,9 @@ class Configuration {
 	private static $databaseSettings = array(
 			'default' =>  array(
 					'host' => 'localhost',
-					'username' => 'canadajo_multi',
-					'password' => 'cpsess3406937680',
-					'databaseName'=> 'canadajo_multisite',
+					'username' => 'root',
+					'password' => '',
+					'databaseName'=> 'hummer',
 					'port' => 3306)
 	);
 	

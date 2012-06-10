@@ -15,6 +15,17 @@ class JobsDao extends DataAccessObject {
 		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where company = '". $company ."'";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
+	
+	public function retrieveTrendingJobs() {
+		$sql = "select jobtitle, unix_timestamp(date_posted) as unix_date_posted, count(jobtitle) as job_count from jobs group by jobtitle order by job_count desc, date_posted desc limit 10";
+		return $this->getConnection()->getResultSetObjectArray($sql);
+	}
+	
+	public function retrieveByQuickSearch($keyword) {
+		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where jobtitle like '%". $keyword ."%' or company like '%". $keyword ."%' or snippet like '%". $keyword ."%'";
+		return $this->getConnection()->getResultSetObjectArray($sql);
+	}
+	
 	/**
 	 * This is very essential for Indeed jobs, they have unique jobkey
 	 * @param int $api_id

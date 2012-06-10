@@ -1,3 +1,33 @@
-<?php 
-echo JobLayout::formatList($records);
-?>
+<center>
+<?php echo Form::quickSearch(); ?>
+</center>
+
+<img src="<?php echo Configuration::getImagePath() . "bigpicture.jpg"; ?>">
+
+<table cellspacing="10">
+	<tr>
+		<td width="70%" valign="top">
+		<h1>Most Recent Job Posts</h1>
+		
+			<div class="container">
+			<?php echo JobLayout::formatList($records);	?>
+			</div>
+			
+		</td>
+		<td valign="top">
+		<h1>Top Trending Jobs</h1>
+		
+		<div class="container">
+			<?php echo JobLayout::formatList($trending_jobs, true); ?>			
+		</div>
+		<br>
+		<h1>Hiring Companies</h1>
+		
+		<div class="container">
+			<?php echo CompaniesLayout::formatList($companies); ?>
+			<?php echo "<center>" . CompaniesLayout::getViewAllCompaniesButton() . "</center>"; ?>
+		</div>
+		
+		</td>
+	</tr>
+</table>

@@ -18,14 +18,19 @@ class CompaniesLayout {
 		
 		return $html;
 	}
-
+		
 	public static function formatElement($element) {
 		$relative_time = RelativeTime::getInstance();
 		$html = "";
 		$html.= "<td>";
 		$html.= "<a href='". Configuration::getURLPath() ."/companies/view/". $element->company ."'>" . $element->company . "</a> (" . $element->job_count . ") <br> Last entry : " . $relative_time->getTextForSQLDate($element->last_entry);
-		$html.= "</td>";
+		$html.= "</td>";		
 
+		return $html;
+	}
+	
+	public static function getViewAllCompaniesButton() {
+		$html = "<button class='submit' onclick='document.location=\"". Configuration::getURLPath() . "/companies\"'>View All Companies</button>";
 		return $html;
 	}
 	
