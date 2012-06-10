@@ -14,11 +14,30 @@ $loading_time = Core_Utilities::startTimer();
 		<link href="/cm_files/30251_2670.ico" rel="shortcut icon"
 			type="image/x-icon" />
 		<link rel="stylesheet"
-			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />
+			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />		
 	</head>
 <body class="bodyCandidate">
-	<a style="display: none;" class="registration-act"
-		href="javascript: void(0)"></a>
+<script>
+$('ul:last li.active').qtip({
+	   content: 'This is an active list element',
+	   show: 'mouseover',
+	   hide: 'mouseout'
+	})
+</script>
+
+<div class="qtip qtip-stylename">
+   <div class="qtip-tip" rel="cornerValue"></div>
+   <div class="qtip-wrapper">
+      <div class="qtip-borderTop"></div> // Only present when using rounded corners
+      <div class="qtip-contentWrapper">
+         <div class="qtip-title"> // All CSS styles...
+            <div class="qtip-button"></div> // ...are usually applied...
+         </div>
+         <div class="qtip-content"></div> // ...to these three elements!
+      </div>
+      <div class="qtip-borderBottom"></div> // Only present when using rounded corners
+   </div>
+</div>
 
 	<div id="holder">
 		<table width="100%" cellpadding="0" cellspacing="0">
@@ -41,6 +60,7 @@ $loading_time = Core_Utilities::startTimer();
 		<br>		
 			<ul id="mainmenu">
                 <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Home">Home</a></li>
+                <li><a href="<?php echo Configuration::getURLPath() . "/jobs";?>" title="Jobs">Jobs</a></li>
                 <li><a href="<?php echo Configuration::getURLPath() . "/companies";?>" title="Companies">Companies</a></li>
                 <li><a href="<?php echo Configuration::getURLPath() . "/search"; ?>" title="Mac">Search</a></li>
                 <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Support">About Us</a></li>

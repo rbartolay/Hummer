@@ -30,4 +30,17 @@
 		
 		</td>
 	</tr>
+	<tr>
+		<td colspan="2">
+		<h1>Popular job titles:</h1>
+		<div class="container">
+		<?php 
+		foreach($trending_jobs as $job) {
+			echo "<a href='#'>". $job->jobtitle ."</a> <br>";
+		}
+		?>
+		</div>
+		</td>
+	</tr>
 </table>
+

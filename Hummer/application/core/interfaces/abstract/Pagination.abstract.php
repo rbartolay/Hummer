@@ -26,6 +26,11 @@ abstract class Pagination {
 	public function enablePagination() {
 		$this->setPagination(true);
 	}
+	
+	public function disablePagination() {
+		$this->setPagination(false);
+	}
+	
 	private function setPagination($pagination) {
 		$this->pagination = $pagination;
 	}

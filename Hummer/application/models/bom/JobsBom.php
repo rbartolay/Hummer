@@ -8,7 +8,11 @@ class JobsBom implements BusinessObjectModel {
 	}
 	
 	public function getAllJobs() {
-		return $this->jDao->retrieveAll();
+		$jDao = new JobsDao();
+		$jDao->getConnection()->setPage(1);
+		$jDao->getConnection()->enablePagination();
+		
+		return $jDao->retrieveAll();
 	}
 	
 	public function getAllJobsByCompanyName($company) {

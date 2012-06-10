@@ -1,5 +1,5 @@
 </div>
-<div class="seoBlock">
+<div class="seoBlock" style="text-align: left;">
 	<p style="padding: 4px 0;">
 		<strong>Popular regions:</strong> <a
 			href="/vacancies/2/alabama/jobs" title="Jobs in Alabama">Alabama</a>
@@ -9,21 +9,6 @@
 		| <a href="/vacancies/2/missouri/jobs" title="Jobs in Missouri">Missouri</a>
 		| <a href="/vacancies/2/new-york/jobs" title="Jobs in New York">New
 			York</a>
-	</p>
-	<p style="padding: 4px 0;">
-		<strong>Popular job titles:</strong> <a
-			href="/vacancies/3/brand-manager/jobs" title="Brand Manager  jobs">Brand
-			Manager </a> | <a
-			href="/vacancies/3/business-development-manager/jobs"
-			title="Business Development Manager jobs">Business Development
-			Manager</a> | <a href="/vacancies/3/commercial-manager/jobs"
-			title="Commercial Manager jobs">Commercial Manager</a> | <a
-			href="/vacancies/3/equipment-operator/jobs"
-			title="Equipment Operator jobs">Equipment Operator</a> | <a
-			href="/vacancies/3/facilities-manager/jobs"
-			title="Facilities Manager jobs">Facilities Manager</a> | <a
-			href="/vacancies/3/financial-controller/jobs"
-			title="Financial Controller jobs">Financial Controller</a>
 	</p>
 </div>
 <div class="bottomMenu">

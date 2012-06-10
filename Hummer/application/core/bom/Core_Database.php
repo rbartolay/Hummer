@@ -68,7 +68,7 @@ class Core_Database extends Pagination implements Singleton {
 
 		$db = new Core_Database($settings);
 		self::$instances[$name] = $db;
-
+		
 		return $db;
 	}
 
@@ -91,7 +91,7 @@ class Core_Database extends Pagination implements Singleton {
 
 		if (!$selected) {			
 			die('Could not select: ' . mysql_error());
-		}
+		}		
 	}
 
 	/**
@@ -132,7 +132,7 @@ class Core_Database extends Pagination implements Singleton {
 	 */
 	public function query($sql) {
 		if(Configuration::isDebug()) {
-			echo $sql;
+			echo $sql . "<br>";
 		}
 		$this->sql = $sql;		
 		if($this->isPagination()) {
