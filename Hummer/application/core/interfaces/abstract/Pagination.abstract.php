@@ -11,7 +11,7 @@ abstract class Pagination {
 	private $row_count = 10;
 	protected $sql = null;
 	private $records_count = null;
-	private  $range = 5;
+	private  $range = 3;
 	
 	/**
 	* Upon invoke creates a database instance to local property
@@ -97,6 +97,9 @@ abstract class Pagination {
 	private function buildPages() {	
 		$pages = array();
 		
+		if($this->buildFirst() != null) {
+			$pages['first'] = $this->buildFirst();
+		}
 		if($this->buildPrevious() != null) {
 			$pages['previous'] = $this->buildPrevious();
 		}
@@ -105,7 +108,7 @@ abstract class Pagination {
 			if (($i > 0) && ($i <= $this->getTotalPages())) {
 				$page = new stdClass();
 				$page->page = $i;
-				$page->url = Core_URL::getBASEURL() . "/" . Core_URL::getCleanURL() . "?page=" . $i;
+				$page->url = $this->buildURL($i);
 				$pages[$i] = $page;
 			} 
 		} 
@@ -113,6 +116,10 @@ abstract class Pagination {
 		
 		if($this->buildNext() != null) {
 			$pages['next'] = $this->buildNext();
+		}
+		
+		if($this->buildLast() != null) {
+			$pages['last'] = $this->buildLast();
 		}
 	
 		return $pages;
@@ -123,6 +130,7 @@ abstract class Pagination {
 		if($this->page > 1) {
 			$previous = new stdClass();
 			$previous->page = "prev";
+			$previous->url = $this->buildURL($this->page - 1);
 			return $previous;
 		}
 		
@@ -133,24 +141,27 @@ abstract class Pagination {
 		if($this->page != $this->getTotalPages()) {
 			$next = new stdClass();
 			$next->page = "next";
+			$next->url = $this->buildURL($this->page + 1);
 			return $next;
 		}
 		return null;
 	}
 	
-	private function buildFirst() {
-		if($this->page > 1 && $this->page!=1) {
+	private function buildFirst() {		
+		if($this->page > 1 && $this->page!=1 && ($this->page - $this->range) > 1) {
 			$first = new stdClass();
 			$first->page = "first";
+			$first->url = $this->buildURL(1);
 			return $first;
 		}
 		return null;
 	}
 	
 	private function buildLast() {
-		if($this->page == $this->getTotalPages() || $this->page==1) {
+		if($this->page < $this->getTotalPages() && ($this->page + $this->range) != $this->getTotalPages()) {
 			$last = new stdClass();
 			$last->page = "last";
+			$last->url = $this->buildURL($this->getTotalPages());
 			return $last;
 		}
 		return null;
@@ -167,6 +178,10 @@ abstract class Pagination {
 		$page_details = "Showing  ". $showing;
 		
 		return $page_details;
+	}
+	
+	private function buildURL($page) {
+		return Core_URL::getBASEURL() . "/" . Core_URL::getCleanURL() . "?page=" . $page;
 	}
 	
 }

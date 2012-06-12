@@ -7,16 +7,17 @@ class JobsBom implements BusinessObjectModel {
 		$this->jDao = new JobsDao();
 	}
 	
-	public function getAllJobs() {
+	public function getAllJobs($page) {
 		$jDao = new JobsDao();
 		$jDao->getConnection()->enablePagination();
-		$jDao->getConnection()->setPage(2);
+		$jDao->getConnection()->setPage($page);
 		
 		$Response = new stdClass();
 		$Response->data = $jDao->retrieveAll();
 		$Response->record_count = $jDao->getConnection()->getRecordsCount();
 		$Response->pages = $jDao->getConnection()->getPages();
-				
+		$Response->current_page = $jDao->getConnection()->getPage();
+		 
 		return $Response;
 	}
 	
@@ -26,6 +27,14 @@ class JobsBom implements BusinessObjectModel {
 	
 	public function getAllJobsByCompanyName($company) {
 		return $this->jDao->retrieveAllByCompanyName(urldecode($company));
+	}
+	
+	public function getJobsByCompanyName($company) {
+		return $this->jDao->retrieveJobsByCompanyName(urldecode($company));
+	}
+	
+	public function getJobByJobId($job_id) {
+		return $this->jDao->retrieveJobByJobId($job_id);
 	}
 	
 	public function getAllJobsByQuickSearch($keyword) {

@@ -13,8 +13,8 @@ table, table table, table table table, table table table table, table table tabl
   font-size: 100%;
 }
 /*-----------------------------General----------------------------*/
-a {color: #2971a7;}
-a:hover{color:#00427c;}
+a {color: #2971a7; text-decoration: none;}
+a:hover{color:#00427c; }
 a.grey{color: #666;}
 a:hover.grey {color: #333;}
 a.blacklinks {

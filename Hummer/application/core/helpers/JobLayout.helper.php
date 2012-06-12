@@ -35,17 +35,14 @@ class JobLayout {
 		$relative_time = RelativeTime::getInstance();
 		
 		$location = self::getLocation($element);
-		
+			
 		$html = "";
 		$html.= "<td>";
-		$html.= "<a href='". $element->url ."' id='jobtitle' target='_blank'>" . $element->jobtitle . "</a><br>";
+		$html.= "<a href='". Configuration::getURLPath() . "/jobs/view/" . $element->job_id ."' id='jobtitle' target='_blank'>" . $element->jobtitle . "</a><br>";
 		$html.= "<span id='company'>" . $element->company ."</span><br> ". $location . "<br><br>";
 		$html.= nl2br($element->snippet) . "<br>";		
 		$html.= "Posted <a href='#' title='". Calendar::formatDateAndTime($element->unix_date_posted) ."'>" . $relative_time->getTextForSQLDate(date("Y-m-d h:i:s", $element->unix_date_posted)) . "</a><br>";
 		$html.= "View Other Jobs from <a href='". Configuration::getURLPath() ."/companies/view/". $element->company ."'>" . $element->company . "</a>";
-		$html.= "</td>";
-		$html.= "<td><button class='applynow' onclick=\"window.open('". $element->url ."')\">Apply Now</button></button>";
-		$html.= "</td>";
 
 		return $html;
 	}
