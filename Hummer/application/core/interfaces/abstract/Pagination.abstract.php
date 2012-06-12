@@ -31,6 +31,10 @@ abstract class Pagination {
 		$this->setPagination(false);
 	}
 	
+	/**
+	 * Sets the local property pagination
+	 * @param boolean pagination 
+	 */
 	private function setPagination($pagination) {
 		$this->pagination = $pagination;
 	}
@@ -93,11 +97,6 @@ abstract class Pagination {
 	private function buildPages() {	
 		$pages = array();
 		
-		/*
-		if($this->buildFirst() != null) {
-			$pages['first'] = $this->buildFirst();
-		}
-		*/
 		if($this->buildPrevious() != null) {
 			$pages['previous'] = $this->buildPrevious();
 		}
@@ -106,7 +105,7 @@ abstract class Pagination {
 			if (($i > 0) && ($i <= $this->getTotalPages())) {
 				$page = new stdClass();
 				$page->page = $i;
-				$page->url = URL::getURL() . "?page=" . $i;
+				$page->url = Core_URL::getBASEURL() . "/" . Core_URL::getCleanURL() . "?page=" . $i;
 				$pages[$i] = $page;
 			} 
 		} 
@@ -115,12 +114,6 @@ abstract class Pagination {
 		if($this->buildNext() != null) {
 			$pages['next'] = $this->buildNext();
 		}
-		/*
-		if($this->buildLast() != null) {
-			$pages['last'] = $this->buildLast();
-		}
-		*/
-		
 	
 		return $pages;
 	}

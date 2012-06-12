@@ -6,6 +6,11 @@ class JobsDao extends DataAccessObject {
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
+	public function retrieveRecentJobs() {
+		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs order by date_posted desc limit 10";
+		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
+	}
+	
 	public function retrieveAllByAPISourceId($api_id) {
 		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where api_source_id = " . $api_id . " order by date_posted desc";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");

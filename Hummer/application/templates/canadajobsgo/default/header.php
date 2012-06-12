@@ -17,27 +17,6 @@ $loading_time = Core_Utilities::startTimer();
 			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />		
 	</head>
 <body class="bodyCandidate">
-<script>
-$('ul:last li.active').qtip({
-	   content: 'This is an active list element',
-	   show: 'mouseover',
-	   hide: 'mouseout'
-	})
-</script>
-
-<div class="qtip qtip-stylename">
-   <div class="qtip-tip" rel="cornerValue"></div>
-   <div class="qtip-wrapper">
-      <div class="qtip-borderTop"></div> // Only present when using rounded corners
-      <div class="qtip-contentWrapper">
-         <div class="qtip-title"> // All CSS styles...
-            <div class="qtip-button"></div> // ...are usually applied...
-         </div>
-         <div class="qtip-content"></div> // ...to these three elements!
-      </div>
-      <div class="qtip-borderBottom"></div> // Only present when using rounded corners
-   </div>
-</div>
 
 	<div id="holder">
 		<table width="100%" cellpadding="0" cellspacing="0">

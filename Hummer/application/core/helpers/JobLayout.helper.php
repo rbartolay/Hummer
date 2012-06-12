@@ -25,7 +25,12 @@ class JobLayout {
 		$html.= "</table>";
 		return $html;
 	}
-
+	
+	public static function getViewOtherJobsButton() {
+		$html = "<button class='submit' onclick='document.location=\"". Configuration::getURLPath() . "/jobs\"'>View Other Jobs</button>";
+		return $html;
+	}
+	
 	public static function formatElement($element) {
 		$relative_time = RelativeTime::getInstance();
 		

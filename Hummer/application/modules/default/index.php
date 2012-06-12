@@ -11,6 +11,7 @@
 		
 			<div class="container">
 			<?php echo JobLayout::formatList($records);	?>
+			<?php echo "<center>" . JobLayout::getViewOtherJobsButton() . "</center>"; ?>
 			</div>
 			
 		</td>
