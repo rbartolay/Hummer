@@ -24,6 +24,11 @@ class CompaniesDao extends DataAccessObject {
 		return $this->getConnection()->getResultSetObjectArray($sql);
 	}
 	
+	public function retrieveCompanyIdByCompanyName($company_name) {
+		$sql = "select company_id from companies where name = '". $company_name ."'";
+		return $this->getConnection()->getResultSet($sql);
+	}
+	
 	public function retrieveCompanyByCompanyName($company_name) {
 		$sql = "select * from companies where name = '". $company_name ."'";
 		return $this->getConnection()->getResultSet($sql);

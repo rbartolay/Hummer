@@ -1,10 +1,3 @@
-<script type="text/javascript" src="<?php echo Configuration::getJSPath() . "jquery-1.7.2.js";?>"></script>
-<script>
-$(function() {
-	$('a:eq(0)').cluetip({arrows: true, sticky: true, splitTitle: '|', cluetipClass: 'rounded', showTitle: false});
-});
-</script>
-<a href="ajax4.html" title="|first line body|second line body">asd</a>
 <center>
 <?php echo Form::quickSearch(); ?>
 </center>

@@ -8,7 +8,7 @@ class Dispatcher {
 					'CareerjetBom', 
 					'MonsterBom');
 
-	private $dao = array();
+	private $dao = array('IndeedDao');
 	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster');
 	private $core_controllers = array(
 					'DefaultController', 
