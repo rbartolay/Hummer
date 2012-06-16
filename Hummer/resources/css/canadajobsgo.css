@@ -1384,3 +1384,6 @@ input:focus, textarea:focus {
 .element:hover {
 	background: #E0E0E0;
 }
+.highlight {
+	background-color: yellow;
+}

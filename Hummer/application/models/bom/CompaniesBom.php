@@ -11,6 +11,10 @@ class CompaniesBom implements BusinessObjectModel {
 		return $this->cDao->retrieveAllCompanies();
 	}
 	
+	public function getCompanyByCompanyName($company_name) {
+		return $this->cDao->retrieveCompanyByCompanyName(urldecode($company_name));
+	}
+	
 	public function getAllCompanyNames() {
 		$companies = $this->cDao->retrieveAllCompanies();
 		

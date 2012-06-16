@@ -14,7 +14,8 @@ $loading_time = Core_Utilities::startTimer();
 		<link href="/cm_files/30251_2670.ico" rel="shortcut icon"
 			type="image/x-icon" />
 		<link rel="stylesheet"
-			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />		
+			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />
+		<script src="<?php echo Configuration::getJSPath() . "jquery-1.7.2.js";?>"></script>
 	</head>
 <body class="bodyCandidate">
 

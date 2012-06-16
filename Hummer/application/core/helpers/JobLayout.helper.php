@@ -38,8 +38,8 @@ class JobLayout {
 		$html = "<div class='element'><table>";
 		$html.= "<tr>";
 		$html.= "<td>";
-		$html.= "<a href='". Configuration::getURLPath() . "/jobs/view/" . $element->job_id ."' id='jobtitle' target='_blank'>" . $element->jobtitle . "</a><br>";
-		$html.= "<span id='company'>" . $element->company ."</span><br> ". $location . "<br><br>";
+		$html.= "<a href='". Configuration::getURLPath() . "/jobs/view/" . $element->job_id ."' id='jobtitle' target='_blank'><b>" . $element->jobtitle . "</b></a><br>";
+		$html.= "<span id='company'><a href='". Configuration::getURLPath() ."/companies/info/". $element->company ."'>" . $element->company ."</a></span><br> ". $location . "<br><br>";
 		$html.= "</td>";
 		$html.= "<td align='right' valign='top'>";
 		if(!empty($element->logo)) {
@@ -71,10 +71,7 @@ class JobLayout {
 		return $html;
 	}
 
-	public static function getViewOtherJobsButton() {
-		$html = "<button class='button' onclick='document.location=\"". Configuration::getURLPath() . "/jobs\"'>View Other Jobs</button>";
-		return $html;
-	}
+
 	
 	private static function getLocation($element) {
 		$location = "";
@@ -104,6 +101,16 @@ class JobLayout {
 	
 	public static function getEmailToFriendButton() {
 		$html = "<a href='mailto(\"absolute_ryann@yahoo.com\")' class='button email'>Email to Friend</a>";
+		return $html;
+	}
+	
+	public static function getViewOtherJobsButton() {
+		$html = "<button class='button' onclick='document.location=\"". Configuration::getURLPath() . "/jobs\"'>View Other Jobs</button>";
+		return $html;
+	}
+	
+	public static function getViewAllJobsByCompanyNameButton($company_name) {
+		$html = "<button class='button star' onclick='document.location=\"". Configuration::getURLPath() . "/companies/view/". $company_name ."\"'>All Jobs by this Company</button>";
 		return $html;
 	}
 }

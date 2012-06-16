@@ -15,4 +15,13 @@ class CompaniesController extends Controller {
 		$template->setAttribute("jobs", $jBom->getAllJobsByCompanyName($param));
 		$template->setAttribute("company", urldecode($param));		
 	}
+	
+	public function info($param) {
+		$cBom = new CompaniesBom();
+		$jBom = new JobsBom();
+		$company = $cBom->getCompanyByCompanyName($param);
+		$template = new Core_Template("default", "companies", "info");
+		$template->setAttribute("company", $company);
+		$template->setAttribute("latest_jobs", $jBom->getJobsByCompanyName($company->name));
+	}
 }

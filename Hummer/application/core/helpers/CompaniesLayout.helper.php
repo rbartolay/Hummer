@@ -39,6 +39,11 @@ class CompaniesLayout {
 		return $html;
 	}
 	
+	public static function getVisitCompanyWebsiteButton($website) {
+		$html = "<a class='button play' target='_blank' href='http://". $website . "'>Visit Company Website</a>";
+		return $html;
+	}
+	
 	public static function getAlphabeticalPagination($default = 'A') {
 		$alphabet = range('A', 'Z');
 		

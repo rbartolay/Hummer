@@ -10,6 +10,13 @@ class CompaniesDao extends DataAccessObject {
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "company_id");
 	}
 	
+	public function retrieveCompanyByCompanyName($company_name) {
+		$sql = "select c.*, count(j.job_id) as total_job_count 
+				from companies as c left join jobs as j on c.company_id = j.company_id 
+				where c.name = '". $company_name ."' and c.active = 1 and c.flag = 0";
+		return $this->getConnection()->getResultSet($sql);
+	}
+	
 	public function insertRecord($record) {
 		return $this->getConnection()->insert("companies", $record);
 	}
@@ -33,9 +40,5 @@ class CompaniesDao extends DataAccessObject {
 		$sql = "select company_id from companies where name = '". $company_name ."'";
 		return $this->getConnection()->getResultSet($sql);
 	}
-	
-	public function retrieveCompanyByCompanyName($company_name) {
-		$sql = "select * from companies where name = '". $company_name ."'";
-		return $this->getConnection()->getResultSet($sql);
-	}
+
 }

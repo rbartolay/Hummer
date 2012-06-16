@@ -45,15 +45,7 @@ class Configuration {
 	 * As we might be looking to multiple database in the future, we placed all database setting
 	 * in an array to give way to next connections
 	 */
-	#private static $databaseSettings = array(
-	#	'default' =>  array(
-	#		'host' => 'localhost',
-	#		'username' => 'root',
-	#		'password' => '',
-	#		'databaseName'=> 'hummer',
-	#		'port' => 3306)
-	#);
-	
+
 	private static $databaseSettings = array(
 			'default' =>  array(
 					'host' => 'localhost',

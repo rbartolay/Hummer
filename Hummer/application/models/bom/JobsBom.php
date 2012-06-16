@@ -38,14 +38,7 @@ class JobsBom implements BusinessObjectModel {
 	}
 	
 	public function getAllJobsByQuickSearch($keyword) {
-		$results = $this->jDao->retrieveByQuickSearch($keyword);
-		
-		foreach($results as $result) {
-			$result->company = Core_Utilities::highlightString($keyword, $result->company);
-			$result->jobtitle = Core_Utilities::highlightString($keyword, $result->jobtitle);
-			$result->snippet = Core_Utilities::highlightString($keyword, $result->snippet);
-		}
-		
+		$results = $this->jDao->retrieveByQuickSearch($keyword);		
 		return $results;
 	}
 	
