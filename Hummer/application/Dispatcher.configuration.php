@@ -31,7 +31,8 @@ class Dispatcher {
 					'Core_XMLCreate',
 					'Core_XMLParser', 
 					'Core_URL',
-					'Core_CURL');
+					'Core_CURL',
+					'Core_Map');
 	private $core_dao = array(
 					'JobsDao',
 					'CompaniesDao'

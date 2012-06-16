@@ -52,5 +52,21 @@ class JobsBom implements BusinessObjectModel {
 	public function getTrendingJobs() {
 		return $this->jDao->retrieveTrendingJobs();
 	}
+	
+	public function insertRecord($data) {
+		return $this->jDao->insertRecord($data);
+	}
+	
+	public function updateRecord($data, $condition) {
+		return $this->jDao->updateRecord($data, $condition);
+	}
+	
+	public function getAllJobsByAPISourceId($api_source_id) {
+		return $this->jDao->retrieveAllByAPISourceId($api_source_id);
+	}
+	
+	public function getAllJobsKeyByAPISourceId($api_source_id) {
+		return $this->jDao->retrieveJobKeysByAPISourceId($api_source_id);
+	}
 }
 ?>

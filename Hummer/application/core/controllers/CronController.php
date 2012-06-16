@@ -1,8 +1,7 @@
 <?php
 class CronController extends Controller {
 	
-	public function executeFeedIndeed() {
-		echo "?";
+	public function executeFeedIndeed() {		
 		$indeed = new APIIndeed();
 		$iBom = new IndeedBom();
 		$iBom->insertRecords($indeed->getResults());
