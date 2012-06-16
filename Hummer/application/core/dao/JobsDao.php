@@ -2,14 +2,14 @@
 class JobsDao extends DataAccessObject {
 	
 	public function retrieveAll() {
-		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted 
+		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted, c.logo
 				from jobs as j inner join companies as c on j.company_id = c.company_id 
 				order by j.date_posted desc";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
 	public function retrieveRecentJobs() {
-		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted 
+		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted, c.logo
 				from jobs as j inner join companies as c on j.company_id = c.company_id 
 				order by j.date_posted desc limit 10";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
@@ -21,7 +21,7 @@ class JobsDao extends DataAccessObject {
 	}
 	
 	public function retrieveJobByJobId($job_id) {
-		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company
+		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company, c.logo
 				from jobs as j inner join companies as c on j.company_id = c.company_id 
 				where j.job_id = " . $job_id . "  order by j.date_posted desc";
 		return $this->getConnection()->getResultSet($sql);

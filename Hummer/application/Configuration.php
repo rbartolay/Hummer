@@ -194,19 +194,11 @@ class Configuration {
 		return self::getCOREPath() . "constants" . DS;
 	}
 	
-	public static function getUploadedImagesPath() {
-		return self::getURLPath() . '/resources/images/users/';
-	}
+	public static function getResourcesPath() {
+		return self::getURLPath() ."/resources/";
+	}	
 	
-	public static function getUploadImagesBasePath() {
-		return self::getBasePath(). '/resources/images/users/';
-	}
-	
-	public static function getUploadedResumePath() {
-		return self::getURLPath() . '/resources/resumes/';
-	}
-	
-	public static function getUploadResumeBasePath() {
-		return self::getBasePath(). '/resources/resumes/';
+	public static function getCompanyImagesPath() {
+		return self::getResourcesPath() . "images/companies/"; 
 	}
 }

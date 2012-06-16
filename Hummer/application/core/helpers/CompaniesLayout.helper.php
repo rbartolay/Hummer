@@ -33,6 +33,11 @@ class CompaniesLayout {
 		$html = "<button class='button' onclick='document.location=\"". Configuration::getURLPath() . "/companies\"'>View All Companies</button>";
 		return $html;
 	}
+		
+	public static function getViewCompanyInfoButton($company) {
+		$html = "<button class='button like' onclick='document.location=\"". Configuration::getURLPath() . "/companies/info/". $company ."\"'>Company Info</button>";
+		return $html;
+	}
 	
 	public static function getAlphabeticalPagination($default = 'A') {
 		$alphabet = range('A', 'Z');

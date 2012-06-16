@@ -3,26 +3,29 @@
 	<tr>
 		<td valign="top">
 			<div class="container">
+				<span style='float: right;'><?php echo JobLayout::getApplyNowButton($job->url); ?></span>
+				<?php if(!empty($job->logo)) {?>
+					<img alt="<?php echo $job->company;?>" src="<?php echo Configuration::getCompanyImagesPath() . $job->logo;?>" height="100">
+				<?php }?>
 				<h3>Company</h3>
-				<p><?php echo "<a href='". Configuration::getURLPath() ."/companies/view/". $job->company ."'>" . $job->company . "</a>"; ?></p><br>
+				<p><?php echo "<a href='". Configuration::getURLPath() ."/companies/view/". $job->company ."'>" . $job->company . "</a>"; ?></p>
+				<p><?php echo $job->country; ?></p><br>
 				
 				<h3>Description</h3>
 				<p><?php echo $job->snippet; ?></p><br>
-				
-				<h3>Location</h3>
-				<p><?php echo $job->location;?></p><br>
-				
+								
 				<h3>Date Posted</h3>
 				<p><?php echo Calendar::formatDate($job->unix_date_posted);?></p><br><br>
 				
-						
-				<button class='button save' onclick="window.open('<?php echo $job->url; ?>')">Apply Now</button></button>
-				<button class='button spark'>Save this Job</button></button>
-				<button class='button like'>Company Info</button></button>
+				
+				<?php echo JobLayout::getSaveThisJobToProfile(); ?>
+				<?php echo JobLayout::getEmailToFriendButton(); ?>
+				<?php echo CompaniesLayout::getViewCompanyInfoButton($job->company); ?>
 			</div>
 		</td>
 		<td valign="top" width="300px">
 			<div class="container">
+				<h3>Location</h3>
 				<?php new Core_Map($job->latitude, $job->longitude);?>
 			</div>
 		</td>

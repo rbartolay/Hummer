@@ -1279,7 +1279,7 @@ input:focus, textarea:focus {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
 	border: 1px solid #777;
 	padding: 0 1.5em;
-	margin: 0.5em;
+	margin: 0;
 	font: bold 1em/2em Arial, Helvetica;
 	text-decoration: none;
 	color: #333;
@@ -1375,4 +1375,12 @@ input:focus, textarea:focus {
 
 .play:before {
 	content: "\25B6";
-} 
+}
+/************* Containers **********************/
+.element {
+	padding: 10px 5px 10px 5px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.element:hover {
+	background: #E0E0E0;
+}
