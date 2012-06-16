@@ -2,12 +2,16 @@
 class JobsDao extends DataAccessObject {
 	
 	public function retrieveAll() {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs order by date_posted desc";
+		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted 
+				from jobs as j inner join companies as c on j.company_id = c.company_id 
+				order by j.date_posted desc";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
 	public function retrieveRecentJobs() {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs order by date_posted desc limit 10";
+		$sql = "select j.*, c.name as company, unix_timestamp(j.date_posted) as unix_date_posted 
+				from jobs as j inner join companies as c on j.company_id = c.company_id 
+				order by j.date_posted desc limit 10";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
@@ -17,17 +21,24 @@ class JobsDao extends DataAccessObject {
 	}
 	
 	public function retrieveJobByJobId($job_id) {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where job_id = " . $job_id . "  order by date_posted desc";
+		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company
+				from jobs as j inner join companies as c on j.company_id = c.company_id 
+				where j.job_id = " . $job_id . "  order by j.date_posted desc";
 		return $this->getConnection()->getResultSet($sql);
 	}
 	
 	public function retrieveAllByCompanyName($company) {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where company = '". $company ."' order by date_posted desc";
+		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company
+				from jobs as j left join companies as c on j.company_id = c.company_id 
+				where c.name = '". $company ."'	order by j.date_posted desc";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
 	public function retrieveJobsByCompanyName($company) {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where company = '". $company ."' order by date_posted desc limit 3";
+		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company 
+				from jobs as j inner join companies as c on j.company_id = c.company_id 
+				where c.name = '". $company ."' 
+				order by j.date_posted desc limit 3";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "job_id");
 	}
 	
@@ -37,7 +48,10 @@ class JobsDao extends DataAccessObject {
 	}
 	
 	public function retrieveByQuickSearch($keyword) {
-		$sql = "select *, unix_timestamp(date_posted) as unix_date_posted from jobs where jobtitle like '%". $keyword ."%' or company like '%". $keyword ."%' or snippet like '%". $keyword ."%'";
+		$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company 
+				from jobs as j left join companies as c on j.company_id = c.company_id 
+				where j.jobtitle like '%". $keyword ."%' or c.name like '%". $keyword ."%' 
+				or j.snippet like '%". $keyword ."%'";
 		return $this->getConnection()->getResultSetObjectArray($sql);
 	}
 	

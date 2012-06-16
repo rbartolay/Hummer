@@ -27,7 +27,7 @@ class JobLayout {
 	}
 	
 	public static function getViewOtherJobsButton() {
-		$html = "<button class='submit' onclick='document.location=\"". Configuration::getURLPath() . "/jobs\"'>View Other Jobs</button>";
+		$html = "<button class='button' onclick='document.location=\"". Configuration::getURLPath() . "/jobs\"'>View Other Jobs</button>";
 		return $html;
 	}
 	

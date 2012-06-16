@@ -16,8 +16,9 @@
 				<p><?php echo Calendar::formatDate($job->unix_date_posted);?></p><br><br>
 				
 						
-				<button class='applynow' onclick="window.open('<?php echo $job->url; ?>')">Apply Now</button></button>
-				<button class='applynow'>Save this Job</button></button>
+				<button class='button save' onclick="window.open('<?php echo $job->url; ?>')">Apply Now</button></button>
+				<button class='button spark'>Save this Job</button></button>
+				<button class='button like'>Company Info</button></button>
 			</div>
 		</td>
 		<td valign="top" width="300px">

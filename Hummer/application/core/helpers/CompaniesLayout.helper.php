@@ -30,7 +30,7 @@ class CompaniesLayout {
 	}
 	
 	public static function getViewAllCompaniesButton() {
-		$html = "<button class='submit' onclick='document.location=\"". Configuration::getURLPath() . "/companies\"'>View All Companies</button>";
+		$html = "<button class='button' onclick='document.location=\"". Configuration::getURLPath() . "/companies\"'>View All Companies</button>";
 		return $html;
 	}
 	

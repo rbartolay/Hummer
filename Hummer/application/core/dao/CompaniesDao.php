@@ -15,12 +15,17 @@ class CompaniesDao extends DataAccessObject {
 	}
 	
 	public function retrieveAllCompaniesByFirstChar($char) {
-		$sql = "select company, count(*) as job_count, date_posted as last_entry from jobs where company like '". $char ."%' and company != '' group by company order by company, date_posted";
+		$sql = "select c.name as company, count(j.job_id) as job_count, j.date_posted as last_entry 
+				from companies as c inner join jobs as j on c.company_id = j.company_id  
+				where c.name like '". $char ."%' and c.active = 1 and c.flag = 0 group by c.name 
+				order by c.name, j.date_posted";
 		return $this->getConnection()->getResultSetObjectArray($sql);
 	}
 	
 	public function retrieveRecentActiveCompanies() {
-		$sql = "select company, count(*) as job_count, date_posted as last_entry from jobs group by company order by date_posted desc limit 10";
+		$sql = "select c.name as company, count(j.job_id) as job_count, j.date_posted as last_entry 
+				from companies as c inner join jobs as j on c.company_id = j.company_id group by company 
+				order by j.date_posted desc limit 10";
 		return $this->getConnection()->getResultSetObjectArray($sql);
 	}
 	
