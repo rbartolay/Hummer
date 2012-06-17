@@ -1,4 +1,3 @@
-<center>
 <?php echo Form::quickSearch(); ?>
 </center>
 

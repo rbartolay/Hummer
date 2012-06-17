@@ -6,7 +6,9 @@ class Dispatcher {
 					'CompaniesBom', 
 					'IndeedBom', 
 					'CareerjetBom', 
-					'MonsterBom');
+					'MonsterBom',
+					'BaseFacebook',
+					'Facebook');
 
 	private $dao = array('IndeedDao');
 	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster');

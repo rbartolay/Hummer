@@ -15,25 +15,18 @@ $loading_time = Core_Utilities::startTimer();
 			type="image/x-icon" />
 		<link rel="stylesheet"
 			href="<?php echo Configuration::getCSSPath() . "canadajobsgo.css"; ?>" />
+		<link rel="stylesheet"
+			href="<?php echo Configuration::getCSSPath() . "global.css"; ?>" />
 		<script src="<?php echo Configuration::getJSPath() . "jquery-1.7.2.js";?>"></script>
 	</head>
-<body class="bodyCandidate">
+<body>
 
 	<div id="holder">
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>
-					<div class="logo"><img src="<?php echo Configuration::getImagePath() . "logo.png";?>"></div></td>
-				<td align="center"></td>
-				<td><div class="top-r-buts">
-						<div class="sw-top-but candSw">
-							<a href="/cm/candidates/join_now">Job Seeker</a>
-						</div>
-						<div class="sw-top-but_act emplSw">
-							<a href="/cm/clients/advertise_jobs">Employer</a>&nbsp;&nbsp;
-						</div>
-					</div>
-				</td>
+					<img src="<?php echo Configuration::getImagePath() . "logo.png";?>"></td>
+				<td><?php echo HTMLLayout::signIn(); ?></td>
 
 			</tr>
 		</table>
