@@ -15,4 +15,8 @@ class DefaultController extends Controller {
 		session_destroy();
 		header("Location: ". Configuration::getURLPath() ."/default/login");
 	}
+	
+	public function clueTip() {
+		new Core_Template("default", "default", "clueTip");
+	}
 }
