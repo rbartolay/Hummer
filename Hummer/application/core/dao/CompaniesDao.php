@@ -2,12 +2,18 @@
 class CompaniesDao extends DataAccessObject {
 	
 	public function retrieveAllCompanies() {
-		#$sql = "select company, count(*) as job_count from jobs where company != '' group by company";
 		$sql = "select company_id, name, 
 				unix_timestamp(date_created) as unix_date_created, 
 				unix_timestamp(date_modified) as date_modified 
 				from companies where flag = 0";
 		return $this->getConnection()->getResultSetObjectArrayPK($sql, "company_id");
+	}
+	
+	public function retrieveRandomCompany() {
+		$sql = "select c.*, count(j.job_id) as total_job_count
+				from companies as c left join jobs as j on c.company_id = j.company_id 
+				where c.logo != '' and c.active = 1 and c.flag = 0 order by rand() limit 1";
+		return $this->getConnection()->getResultSet($sql);
 	}
 	
 	public function retrieveCompanyByCompanyName($company_name) {

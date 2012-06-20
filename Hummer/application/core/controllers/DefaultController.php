@@ -8,6 +8,7 @@ class DefaultController extends Controller {
 		$template->setAttribute("records", $jBom->getAllRecentJobs());
 		$template->setAttribute("companies", $cBom->getRecentActiveCompanies());
 		$template->setAttribute("trending_jobs", $jBom->getTrendingJobs());
+		$template->setAttribute("featured_company", $cBom->getFeaturedCompany());
 	}
 		
 	public function logout() {

@@ -33,7 +33,7 @@ class HTMLLayout {
 		$html.= '});';
 		$html.= '</script>';
 		$html.= '<div id="sign_in_container">';
-		$html.= '<div id="topnav" class="topnav"><a href="login" class="signin"><span>Career Seekers</span></a> </div>';
+		$html.= '<div id="topnav" class="topnav"><a href="login" class="signin"><span>Sign In</span></a> </div>';
 		$html.= '<fieldset id="signin_menu">';
 		$html.= '<form method="post" id="signin" action="https://twitter.com/sessions">';
 		$html.= '<label for="username">Username or email</label>';

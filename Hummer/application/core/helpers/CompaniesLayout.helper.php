@@ -18,7 +18,16 @@ class CompaniesLayout {
 		
 		return $html;
 	}
-		
+	
+	public static function featureCompany($company) {
+		$html = "<table>";
+		$html.= "<tr>";
+		$html.= "<td align='center'><img src='". Configuration::getCompanyImagesPath() . $company->logo . "' width='200'></td>";
+		$html.= "</tr>";
+		$html.= "</table>";
+		return $html;
+	}
+	
 	public static function formatElement($element) {
 		$relative_time = RelativeTime::getInstance();
 		$html = "";
