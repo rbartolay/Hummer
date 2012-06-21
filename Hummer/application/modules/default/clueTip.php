@@ -1,23 +1,7 @@
  <style type="text/css" media="screen">
     <!--
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            padding: 10px;
-        }
-        
-        h1 {
-            margin: 14px 0;
-            font-family: 'Trebuchet MS', Helvetica;
-        }
-        
-        p {
-            margin: 14px 0;
-            font-family: 'Trebuchet MS', Helvetica;
-        }
+       
+      
         
         .bubbleInfo {
             position: relative;
@@ -25,12 +9,12 @@
             left: 100px;
             width: 500px;
         }
+        
         .trigger {
             position: absolute;
         }
      
         /* Bubble pop-up */
-
         .popup {
         	position: absolute;
         	display: none;
@@ -60,36 +44,9 @@
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e8e8e8',GradientType=0 );
         }
 
-
-
-        .popup table.popup-contents {
-        	font-size: 12px;
-        	line-height: 1.2em;        	
-        	color: #666;
-        	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
-        	}
-
-        table.popup-contents th {
-        	text-align: right;
-        	text-transform: lowercase;
-        	}
-
-        table.popup-contents td {
-        	text-align: left;
-        	}
-
-        tr#release-notes th {
-        	text-align: left;
-        	text-indent: -9999px;
-        	
-        	height: 17px;
-        	}
-
-        tr#release-notes td a {
-        	color: #333;
-        }
+     
         
-    -->
+    
     </style>
  <script type="text/javascript">
     <!--
@@ -118,8 +75,8 @@
                     beingShown = true;
 
                     info.css({
-                        top: -90,
-                        left: -33,
+                        top: 0,
+                        left: 250,
                         display: 'block'
                     }).animate({
                         top: '-=' + distance + 'px',
@@ -153,26 +110,14 @@
     //-->
     </script>
 
-    <h1>Coda Bubble Example</h1>
-    <p>This shows a demonstration of the 'puff' popup bubble effect as seen over the download link on the <a href="http://www.panic.com/coda/">Coda web site</a>.</p>
-    <p>Roll the mouse over and out from the download image to see the popup fade in and out of view, while gently gliding upwards.</p>
-    <p><a href="http://jqueryfordesigners.com/coda-popup-bubbles">Read the article, and see the screencast this demonstration relates to</a></p>
-    <p><small>Note that the transparency doesn't work in IE - this is the same on the Coda web site where the images were sourced.</small></p>
 
-    
     <div class="bubbleInfo">
         <div>
             <img class="trigger" src="http://jqueryfordesigners.com/demo/images/coda/nav-download.png" id="download" />
         </div>
         <table id="dpop" class="popup">
-        	<tbody><tr>
-        		<td id="topleft" class="corner"></td>
-        		<td class="top"></td>
-        		<td id="topright" class="corner"></td>
-        	</tr>
-
-        	<tr>
-        		<td class="left"></td>
+        	<tbody>
+        	<tr>        		
         		<td><table class="popup-contents">
         			<tbody><tr>
         				<th>File:</th>
@@ -195,15 +140,8 @@
         				<td><a title="Read the release notes" href="./releasenotes.html">release notes</a></td>
         			</tr>
         		</tbody></table>
-
         		</td>
-        		<td class="right"></td>    
-        	</tr>
-
-        	<tr>
-        		<td class="corner" id="bottomleft"></td>
-        		<td class="bottom"><img width="30" height="29" alt="popup tail" src="http://static.jqueryfordesigners.com/demo/images/coda/bubble-tail2.png"/></td>
-        		<td id="bottomright" class="corner"></td>
-        	</tr>
-        </tbody></table>
+        	</tr>        
+        </tbody>
+        </table>
     </div>
