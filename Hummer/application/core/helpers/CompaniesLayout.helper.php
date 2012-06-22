@@ -38,7 +38,7 @@ class CompaniesLayout {
 		$html.= '} else {';
 		$html.= 'beingShown = true;';
 		$html.= 'info.css({';
-		$html.= 'top: 0, left: 250, display: \'block\'';
+		$html.= 'top: 0, left: -450, display: \'block\'';
 		$html.= '}).animate({';
 		$html.= 'top: "-=" + distance + "px", opacity: 1';
 		$html.= '}, time, "swing", function() {';
@@ -64,31 +64,15 @@ class CompaniesLayout {
 		$html.= '</script>';
 		
 		$html.= '<div class="bubbleInfo">
-		<div>asd
+		<div class="trigger">
+		<img src="'. Configuration::getCompanyImagesPath() . $company->logo .'" width="200">
 		</div>
 		<table id="dpop" class="popup">
 		<tbody>
 		<tr>
-		<td><table class="popup-contents">
+		<td><table class="popup-contents" width="400px">
 		<tbody><tr>
-		<th>File:</th>
-		<td>coda 1.1.zip</td>
-		</tr>
-		<tr>
-		<th>Date:</th>
-		<td>11/30/07</td>
-		</tr>
-		<tr>
-		<th>Size:</th>
-		<td>17 MB</td>
-		</tr>
-		<tr>
-		<th>Req:</th>
-		<td>Mac OS X 10.4+</td>
-		</tr>
-		<tr id="release-notes">
-		<th>Read the release notes:</th>
-		<td><a title="Read the release notes" href="./releasenotes.html">release notes</a></td>
+		<td>123</td>
 		</tr>
 		</tbody></table>
 		</td>
@@ -96,7 +80,7 @@ class CompaniesLayout {
 		</tbody>
 		</table>
 		</div>';
-				
+
 		return $html;
 	}
 	

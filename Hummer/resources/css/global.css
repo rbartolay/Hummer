@@ -141,13 +141,12 @@ border:0;
 
         .bubbleInfo {
             position: relative;
-            
-            left: 100px;
-         
-        }
+            cursor: pointer;
+            left:10px;
+        }        
         
         .trigger {
-        	position: absolute;
+        	
         }
      
         /* Bubble pop-up */
