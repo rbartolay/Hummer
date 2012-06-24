@@ -12,7 +12,10 @@ class CompaniesDao extends DataAccessObject {
 	public function retrieveRandomCompany() {
 		$sql = "select c.*, count(j.job_id) as total_job_count
 				from companies as c left join jobs as j on c.company_id = j.company_id 
-				where c.logo != '' and c.active = 1 and c.flag = 0 order by rand() limit 1";
+				where c.logo != '' and c.active = 1 and c.flag = 0
+				group by c.company_id 
+				order by rand() 
+				 limit 1";
 		return $this->getConnection()->getResultSet($sql);
 	}
 	

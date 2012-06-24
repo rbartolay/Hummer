@@ -71,14 +71,31 @@ class CompaniesLayout {
 		<tbody>
 		<tr>
 		<td><table class="popup-contents" width="400px">
-		<tbody><tr>
-		<td>123</td>
-		</tr>
-		</tbody></table>
-		</td>
-		</tr>
-		</tbody>
-		</table>
+		<tbody>
+		<tr>
+		<td><h1>'. $company->name .'</h1>	</td>
+		</tr>';
+		if($company->website != "") {
+			$html.= '<tr>
+						<td><a href="'. $company->website .'" target="_blank">'. $company->website .'</a><br></td>
+					</tr>';	
+		}
+		
+		$html.= '   <tr>
+						<td><p>'. $company->description .'</p></td>
+					</tr>
+					<tr>
+						<td>Total Job Posts : <b>'. $company->total_job_count .'</b></td>
+					</tr>
+					<tr>
+						<td>'. JobLayout::getViewAllJobsByCompanyNameButton($company->name) .'</td>
+					</tr>
+					</tbody>
+				</table>
+				</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>';
 
 		return $html;

@@ -29,8 +29,7 @@ $loading_time = Core_Utilities::startTimer();
 				<td><?php echo HTMLLayout::signIn(); ?></td>
 
 			</tr>
-		</table>
-		<br>	
+		</table>		
 		<table width="100%">
 			<tr>
 				<td width="500">
@@ -48,7 +47,5 @@ $loading_time = Core_Utilities::startTimer();
 				</td>
 			</tr>
 		</table>	
-			
-
 		<div class="content">
 

@@ -1,10 +1,8 @@
-
-<!-- <img src="<?php //echo Configuration::getImagePath() . "bigpicture.jpg"; ?>"> -->
-
 <table cellspacing="10">
 	<tr>
 		<td width="70%" valign="top">
 		<?php echo Form::quickSearch(); ?>
+		<img src="<?php echo Configuration::getImagePath() . "bigpicture.jpg"; ?>" width="650">
 		<h1>Most Recent Job Posts</h1>
 		
 			<div class="container">
