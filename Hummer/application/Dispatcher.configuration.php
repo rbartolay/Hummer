@@ -17,7 +17,8 @@ class Dispatcher {
 					'CronController',
 					'CompaniesController',
 					'SearchController',
-					'JobsController'
+					'JobsController',
+					'RegistrationController'
 					);
 	private $core_bom = array(
 					'Core_Database', 

@@ -5,7 +5,7 @@ class Form {
 		$html.= "<table>";
 		$html.= "<tr>";
 		$html.= "<td><input type='text' name='keyword' placeholder='Search Job by Keyword, Company Name, Description' size='50' value='". @$_GET['keyword'] ."'></td>";
-		$html.= "<td><input type='submit' class='submit' value='Search'></td>";
+		$html.= "<td><input type='submit' class='button' value='Search Jobs'></td>";
 		$html.= "</tr>";
 		$html.= "</table>";
 		$html.= "</form>";
