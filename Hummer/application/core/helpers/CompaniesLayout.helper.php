@@ -38,7 +38,7 @@ class CompaniesLayout {
 		$html.= '} else {';
 		$html.= 'beingShown = true;';
 		$html.= 'info.css({';
-		$html.= 'top: 0, left: -450, display: \'block\'';
+		$html.= 'top: 0, left: -530, display: \'block\'';
 		$html.= '}).animate({';
 		$html.= 'top: "-=" + distance + "px", opacity: 1';
 		$html.= '}, time, "swing", function() {';
@@ -70,14 +70,16 @@ class CompaniesLayout {
 		<table id="dpop" class="popup">
 		<tbody>
 		<tr>
-		<td><table class="popup-contents" width="400px">
+		<td>
+		<div class="popup-contents">
+		<table width="400px" align="center">
 		<tbody>
 		<tr>
 		<td><h1>'. $company->name .'</h1>	</td>
 		</tr>';
 		if($company->website != "") {
 			$html.= '<tr>
-						<td><a href="'. $company->website .'" target="_blank">'. $company->website .'</a><br></td>
+						<td><a href="http://'. $company->website .'" target="_blank">'. $company->website .'</a><br></td>
 					</tr>';	
 		}
 		
@@ -92,6 +94,7 @@ class CompaniesLayout {
 					</tr>
 					</tbody>
 				</table>
+		</div>
 				</td>
 				</tr>
 				</tbody>
