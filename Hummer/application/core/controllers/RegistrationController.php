@@ -1,14 +1,10 @@
-<?php 
+<?php
 class RegistrationController extends Controller {
-	
 	public function index() {
-		new Core_Template("default", "registration");
+		$template = new Core_Template("default", "registration", "jobseeker");
 	}
 	
-	public function employers() {
-		
+	public function employer() {
+		$template = new Core_Template("default", "registration", "employer");
 	}
-	
 }
-
-?>

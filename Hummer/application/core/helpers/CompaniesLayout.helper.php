@@ -18,7 +18,72 @@ class CompaniesLayout {
 		
 		return $html;
 	}
+	
+	public static function featureCompany($company) {
+		$html = '<script type="text/javascript">';
+		$html.= '$(function () {';
+		$html.= '$(\'.bubbleInfo\').each(function () {';
+		$html.= 'var distance = 10;';
+		$html.= 'var time = 250;';
+		$html.= 'var hideDelay = 500;';
+		$html.= 'var hideDelayTimer = null;';
+		$html.= 'var beingShown = false;';
+		$html.= 'var shown = false;';
+		$html.= 'var trigger = $(\'.trigger\', this);';
+		$html.= 'var info = $(\'.popup\', this).css(\'opacity\', 0);';
+		$html.= '$([trigger.get(0), info.get(0)]).mouseover(function () {';
+		$html.= 'if (hideDelayTimer) clearTimeout(hideDelayTimer);';
+		$html.= 'if (beingShown || shown) {';		
+		$html.= 'return;';
+		$html.= '} else {';
+		$html.= 'beingShown = true;';
+		$html.= 'info.css({';
+		$html.= 'top: 0, left: -450, display: \'block\'';
+		$html.= '}).animate({';
+		$html.= 'top: "-=" + distance + "px", opacity: 1';
+		$html.= '}, time, "swing", function() {';
+		$html.= 'beingShown = false; shown = true;';
+		$html.= '});';
+		$html.= '}';
+		$html.= 'return false;';
+		$html.= '}).mouseout(function () {';
+		$html.= 'if (hideDelayTimer) clearTimeout(hideDelayTimer);';
+		$html.= 'hideDelayTimer = setTimeout(function () {';
+		$html.= 'hideDelayTimer = null;';
+		$html.= 'info.animate({';
+		$html.= 'top: "-=" + distance + "px", opacity: 0';
+		$html.= '}, time, "swing", function () {';
+		$html.= 'shown = false;';
+		$html.= 'info.css("display", "none");';
+		$html.= '});';
+		$html.= '}, hideDelay);';
+		$html.= 'return false;';
+		$html.= '});';
+		$html.= '});';
+		$html.= '});';
+		$html.= '</script>';
 		
+		$html.= '<div class="bubbleInfo">
+		<div class="trigger">
+		<img src="'. Configuration::getCompanyImagesPath() . $company->logo .'" width="200">
+		</div>
+		<table id="dpop" class="popup">
+		<tbody>
+		<tr>
+		<td><table class="popup-contents" width="400px">
+		<tbody><tr>
+		<td>123</td>
+		</tr>
+		</tbody></table>
+		</td>
+		</tr>
+		</tbody>
+		</table>
+		</div>';
+
+		return $html;
+	}
+	
 	public static function formatElement($element) {
 		$relative_time = RelativeTime::getInstance();
 		$html = "";

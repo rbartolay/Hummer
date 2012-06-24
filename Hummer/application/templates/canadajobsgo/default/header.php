@@ -30,14 +30,25 @@ $loading_time = Core_Utilities::startTimer();
 
 			</tr>
 		</table>
-		<br>		
-			<ul id="mainmenu">
-                <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Home">Home</a></li>
-                <li><a href="<?php echo Configuration::getURLPath() . "/jobs";?>" title="Jobs">Jobs</a></li>
-                <li><a href="<?php echo Configuration::getURLPath() . "/companies";?>" title="Companies">Companies</a></li>
-                <li><a href="<?php echo Configuration::getURLPath() . "/search"; ?>" title="Mac">Search</a></li>
-                <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Support">About Us</a></li>
-            </ul>
+		<br>	
+		<table width="100%">
+			<tr>
+				<td width="500">
+					<ul id="mainmenu">
+		                <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Home">Home</a></li>
+		                <li><a href="<?php echo Configuration::getURLPath() . "/jobs";?>" title="Jobs">Jobs</a></li>
+		                <li><a href="<?php echo Configuration::getURLPath() . "/companies";?>" title="Companies">Companies</a></li>
+		                <li><a href="<?php echo Configuration::getURLPath() . "/search"; ?>" title="Mac">Search</a></li>
+		                <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Support">About Us</a></li>
+		            </ul>
+				</td>
+				<td width="300" align="right">
+					<button class="special" onclick="document.location.href='<?php echo Configuration::getURLPath() . "/registration"?>'">Job Seekers</button>
+					<button class="special" onclick="document.location.href='<?php echo Configuration::getURLPath() . "/registration/employer"?>'">Employers</button>
+				</td>
+			</tr>
+		</table>	
+			
 
 		<div class="content">
 
