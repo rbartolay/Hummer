@@ -17,7 +17,11 @@ class Configuration {
 	 */
 	private static $siteOffline = false;
 	
-	private static $debug = true;
+	/**
+	 * Place true if you are debugging sql queries
+	 * @var unknown_type
+	 */
+	private static $debug = false;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used
@@ -45,7 +49,7 @@ class Configuration {
 	 * As we might be looking to multiple database in the future, we placed all database setting
 	 * in an array to give way to next connections
 	 */
-
+	
 	private static $databaseSettings = array(
 			'default' =>  array(
 					'host' => 'localhost',
@@ -54,7 +58,6 @@ class Configuration {
 					'databaseName'=> 'hummer',
 					'port' => 3306)
 	);
-	
 
 	/**
 	private static $databaseSettings = array(
@@ -192,5 +195,9 @@ class Configuration {
 	
 	public static function getCompanyImagesPath() {
 		return self::getResourcesPath() . "images/companies/"; 
+	}
+	
+	public static function getAPISourcesImagesPath() {
+		return self::getResourcesPath() . "images/sources/";
 	}
 }

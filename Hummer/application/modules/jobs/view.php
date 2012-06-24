@@ -15,8 +15,11 @@
 				<p><?php echo $job->snippet; ?></p><br>
 								
 				<h3>Date Posted</h3>
-				<p><?php echo Calendar::formatDate($job->unix_date_posted);?></p><br><br>
+				<p><?php echo Calendar::formatDate($job->unix_date_posted);?></p><br>
 				
+				<h3>Source</h3>
+				<a href="<?php echo $api->url; ?>" target="_blank"><img src="<?php echo Configuration::getAPISourcesImagesPath() . $api->logo; ?>" alt="<?php echo $api->name; ?>"></a>
+				<br><br>
 				
 				<?php echo JobLayout::getSaveThisJobToProfile(); ?>
 				<?php echo JobLayout::getEmailToFriendButton(); ?>
@@ -32,6 +35,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
+		<br>
 <h2>Other Jobs from <?php echo "<a href='". Configuration::getURLPath() ."/companies/view/". $job->company ."'>" . $job->company . "</a>";?></h2>
 			<div class="container">
 				<?php echo JobLayout::formatList($other_jobs); ?>

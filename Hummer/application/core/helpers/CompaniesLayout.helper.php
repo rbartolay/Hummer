@@ -38,7 +38,7 @@ class CompaniesLayout {
 		$html.= '} else {';
 		$html.= 'beingShown = true;';
 		$html.= 'info.css({';
-		$html.= 'top: 0, left: -530, display: \'block\'';
+		$html.= 'top: 0, left: -470, display: \'block\'';
 		$html.= '}).animate({';
 		$html.= 'top: "-=" + distance + "px", opacity: 1';
 		$html.= '}, time, "swing", function() {';

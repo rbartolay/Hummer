@@ -11,7 +11,7 @@ class Dispatcher {
 					'Facebook');
 
 	private $dao = array('IndeedDao');
-	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster');
+	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster', 'APISources');
 	private $core_controllers = array(
 					'DefaultController', 
 					'CronController',
