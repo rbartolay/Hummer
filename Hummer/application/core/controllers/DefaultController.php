@@ -10,7 +10,11 @@ class DefaultController extends Controller {
 		$template->setAttribute("trending_jobs", $jBom->getTrendingJobs());
 		$template->setAttribute("featured_company", $cBom->getFeaturedCompany());
 	}
-		
+	
+	public function login() {
+		new Core_Template("default", "default", "login");
+	}
+	
 	public function logout() {
 		session_destroy();
 		header("Location: ". Configuration::getURLPath() ."/default/login");

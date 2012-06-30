@@ -8,7 +8,10 @@ class Dispatcher {
 					'CareerjetBom', 
 					'MonsterBom',
 					'BaseFacebook',
-					'Facebook');
+					'Facebook',
+					'FacebookUtilities',
+					'AuthenticationBom'
+	);
 
 	private $dao = array('IndeedDao');
 	private $core_constants = array('DomainNames', 'APIIndeed', 'APICareerjet', 'APIMonster', 'APISources');
@@ -38,15 +41,15 @@ class Dispatcher {
 					'Core_Map');
 	private $core_dao = array(
 					'JobsDao',
-					'CompaniesDao'
+					'CompaniesDao',
+					'UsersDao'
 					);
 	private $core_helpers = array(
 					'URL', 
 					'Calendar', 
 					'JobLayout', 
 					'RelativeTime', 
-					'CompaniesLayout', 
-					'Login', 
+					'CompaniesLayout', 					
 					'Form', 
 					'HTMLLayout'
 					);

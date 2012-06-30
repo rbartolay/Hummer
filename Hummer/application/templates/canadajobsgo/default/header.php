@@ -38,7 +38,7 @@ $loading_time = Core_Utilities::startTimer();
 		                <li><a href="<?php echo Configuration::getURLPath() . "/jobs";?>" title="Jobs">Jobs</a></li>
 		                <li><a href="<?php echo Configuration::getURLPath() . "/companies";?>" title="Companies">Companies</a></li>
 		                <li><a href="<?php echo Configuration::getURLPath() . "/search"; ?>" title="Mac">Search</a></li>
-		                <li><a href="<?php echo Configuration::getURLPath(); ?>" title="Support">About Us</a></li>
+		                <li><a href="<?php echo Configuration::getURLPath() . "/default/about"; ?>" title="Support">About Us</a></li>
 		            </ul>
 				</td>
 				<td width="300" align="right">
