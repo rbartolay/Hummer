@@ -38,7 +38,7 @@ class JobLayout {
 		$html = "<div class='element'><table>";
 		$html.= "<tr>";
 		$html.= "<td>";
-		$html.= "<a href='". Configuration::getURLPath() . "/jobs/view/" . $element->job_id ."' id='jobtitle' target='_blank'><b>" . $element->jobtitle . "</b></a><br>";
+		$html.= "<a href='". Configuration::getURLPath() . "/jobs/view/" . $element->job_id ."-". str_replace(" ", "-", $element->jobtitle) ."' target='_blank'><b>" . $element->jobtitle . "</b></a><br>";
 		$html.= "<span id='company'><a href='". Configuration::getURLPath() ."/companies/info/". $element->company ."'>" . $element->company ."</a></span><br> ". $location . "<br><br>";
 		$html.= "</td>";
 		$html.= "<td align='right' valign='top'>";

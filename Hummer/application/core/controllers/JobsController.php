@@ -11,7 +11,7 @@ class JobsController extends Controller {
 	
 	public function view($job_id) {
 		$jBom = new JobsBom();
-		$apis = new APISources();		
+		$apis = new APISources();
 		
 		$template = new Core_Template("default", "jobs", "view");
 		$job = $jBom->getJobByJobId($job_id);

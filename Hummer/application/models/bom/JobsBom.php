@@ -34,7 +34,8 @@ class JobsBom implements BusinessObjectModel {
 	}
 	
 	public function getJobByJobId($job_id) {
-		return $this->jDao->retrieveJobByJobId($job_id);
+		$job = explode("-", $job_id);
+		return $this->jDao->retrieveJobByJobId($job[0]);
 	}
 	
 	public function getAllJobsByQuickSearch($keyword) {
