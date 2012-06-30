@@ -19,4 +19,12 @@ class DefaultController extends Controller {
 	public function clueTip() {
 		new Core_Template("default", "default", "clueTip");
 	}
+	
+	public function privacy() {
+		new Core_Template("default", "default", "privacy");
+	}
+	
+	public function about() {
+		new Core_Template("default", "default", "aboutUs");
+	}
 }
