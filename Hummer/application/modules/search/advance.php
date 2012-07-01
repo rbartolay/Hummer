@@ -3,25 +3,20 @@
 		<td valign="top">
 		<h1>Job Search</h1>
 			<div class="container">
-				<form class="form" method="POST">
+				<form class="form" method="GET" action="<?php echo Configuration::getURLPath() . "/search/advance"; ?>">
 					<table>
 						<tr>
-							<td><label for="name">Job</label></td>
-							<td><input type="text" name="name" id="name" /></td>
+							<td><label for="name">Job Title</label></td>
+							<td><input type="text" name="jobtitle" value="<?php echo @$_GET['jobtitle']; ?>" /></td>
 						</tr>
 						
 						<tr>
 							<td><label for="email">Company</label></td>
-							<td><input type="text" name="email" id="email" /></td>
+							<td><input type="text" name="company" value="<?php echo @$_GET['company']; ?>" /></td>
 						</tr>
-						
+												
 						<tr>
-							<td> <label for="web">Website</label></td>
-							<td><input type="text" name="web" id="web" /></td>
-						</tr>
-						
-						<tr>
-							<td colspan="2"><input  class="submit" type="submit" value="Send" /></td>
+							<td colspan="2"><input  class="submit" type="submit" value="Advance Search" /></td>
 						</tr>
 					</table>
 				</form>

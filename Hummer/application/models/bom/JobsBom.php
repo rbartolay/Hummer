@@ -43,6 +43,13 @@ class JobsBom implements BusinessObjectModel {
 		return $results;
 	}
 	
+	public function getAllJobsByAdvanceSearch($data) {
+		$search = new stdClass();
+		$search->jobtitle = $data->jobtitle;
+		$search->company = $data->company;		
+		return $this->jDao->retrieveByAdvanceSearch($search);
+	}
+	
 	public function getTrendingJobs() {
 		return $this->jDao->retrieveTrendingJobs();
 	}

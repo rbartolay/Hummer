@@ -14,6 +14,13 @@ class SearchController extends Controller {
 		$template->setAttribute("results", $jBom->getAllJobsByQuickSearch($keyword));
 		$template->setAttribute("keyword", $keyword);
 	}
+	
+	public function advance() {		
+		$jBom = new JobsBom();
+		$template = new Core_Template("default", "search", "advanceResults");
+		$template->setAttribute("results", $jBom->getAllJobsByAdvanceSearch($this->Request->get));
+		$template->setAttribute("criteria", $this->Request->get);
+	}
 }
 
 ?>

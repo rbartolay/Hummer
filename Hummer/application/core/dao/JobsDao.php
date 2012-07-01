@@ -55,6 +55,33 @@ class JobsDao extends DataAccessObject {
 		return $this->getConnection()->getResultSetObjectArray($sql);
 	}
 	
+	public function retrieveByAdvanceSearch($data) {
+		
+		$queryString = "";
+		$conditions = array();
+		
+		if($data->jobtitle != "") {
+			$conditions[] = "j.jobtitle like '%". $data->jobtitle ."%'";
+		}
+		
+		if($data->company != "") {
+			$conditions[] = "c.name like '%". $data->company ."%'";
+		}		
+		
+		if(count($conditions) >= 1) {			
+			$queryString.= "where ";
+			$queryString.= implode(" and ", $conditions);
+		}
+		
+		if($queryString != "") {
+			$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company
+							from jobs as j left join companies as c on j.company_id = c.company_id ";
+			$sql.= $queryString;			
+			return $this->getConnection()->getResultSetObjectArray($sql);
+		}
+		return null;
+	}
+	
 	/**
 	 * This is very essential for Indeed jobs, they have unique jobkey
 	 * @param int $api_id

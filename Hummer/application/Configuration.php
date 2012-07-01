@@ -21,7 +21,7 @@ class Configuration {
 	 * Place true if you are debugging sql queries
 	 * @var unknown_type
 	 */
-	private static $debug = false;
+	private static $debug = true;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used

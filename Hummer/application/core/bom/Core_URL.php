@@ -42,7 +42,7 @@ class Core_URL implements BusinessObjectModel {
 			return strtolower($domain["path"]);
 		}
 	}
-
+	
 	public static function getCleanURL() {
 		$url = explode("?", @substr($_SERVER['REQUEST_URI'], 1));
 		return $url[0];

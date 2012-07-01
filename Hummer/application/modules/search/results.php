@@ -6,7 +6,7 @@
 </script>
 <table width="100%">
 	<tr>
-		<td><h1>Search Results</h1></td>
+		<td><h1>Results for <?php echo @$_GET['keyword'];?></h1></td>
 		<td align="right"><?php echo Form::quickSearch(); ?></td>
 	</tr>
 </table>
