@@ -11,7 +11,8 @@ abstract class Pagination {
 	private $row_count = 10;
 	protected $sql = null;
 	private $records_count = null;
-	private  $range = 3;
+	private $range = 3;
+	private $queryString = null;
 	
 	/**
 	* Upon invoke creates a database instance to local property
@@ -49,6 +50,14 @@ abstract class Pagination {
 	
 	public function getData() {
 		return $this->data;
+	}
+	
+	public function setQueryString($queryString) {	
+		$this->queryString = $queryString;
+	}
+	
+	public function getQueryString() {		
+		return $this->queryString != null ? "&" . $this->queryString : "";
 	}
 	
 	public function setPage($page = null) {
@@ -181,7 +190,7 @@ abstract class Pagination {
 	}
 	
 	private function buildURL($page) {
-		return Core_URL::getBASEURL() . "/" . Core_URL::getCleanURL() . "?page=" . $page;
+		return Core_URL::getBASEURL() . "/" . Core_URL::getCleanURL() . "?page=" . $page . $this->getQueryString();
 	}
 	
 }

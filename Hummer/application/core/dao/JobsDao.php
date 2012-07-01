@@ -76,7 +76,8 @@ class JobsDao extends DataAccessObject {
 		if($queryString != "") {
 			$sql = "select j.*, unix_timestamp(j.date_posted) as unix_date_posted, c.name as company
 							from jobs as j left join companies as c on j.company_id = c.company_id ";
-			$sql.= $queryString;			
+			$sql.= $queryString;
+			$sql.= " order by j.date_created desc";
 			return $this->getConnection()->getResultSetObjectArray($sql);
 		}
 		return null;

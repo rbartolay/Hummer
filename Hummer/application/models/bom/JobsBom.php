@@ -43,11 +43,24 @@ class JobsBom implements BusinessObjectModel {
 		return $results;
 	}
 	
-	public function getAllJobsByAdvanceSearch($data) {
+	public function getAllJobsByAdvanceSearch($data, $page) {
+		
 		$search = new stdClass();
 		$search->jobtitle = $data->jobtitle;
-		$search->company = $data->company;		
-		return $this->jDao->retrieveByAdvanceSearch($search);
+		$search->company = $data->company;
+		
+		$jDao = new JobsDao();
+		$jDao->getConnection()->enablePagination();
+		$jDao->getConnection()->setPage($page);
+		$jDao->getConnection()->setQueryString(URL::buildObjectAsQueryString($search));
+			
+		$Response = new stdClass();
+		$Response->data = $this->jDao->retrieveByAdvanceSearch($search);		
+		$Response->record_count = $jDao->getConnection()->getRecordsCount();
+		$Response->pages = $jDao->getConnection()->getPages();
+		$Response->current_page = $jDao->getConnection()->getPage();
+		
+		return $Response;
 	}
 	
 	public function getTrendingJobs() {

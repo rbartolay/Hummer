@@ -16,9 +16,14 @@ class SearchController extends Controller {
 	}
 	
 	public function advance() {		
+		$page = isset($this->Request->get->page) ? $this->Request->get->page : 1;
+		
 		$jBom = new JobsBom();
+		$Response = $jBom->getAllJobsByAdvanceSearch($this->Request->get, $page);
 		$template = new Core_Template("default", "search", "advanceResults");
-		$template->setAttribute("results", $jBom->getAllJobsByAdvanceSearch($this->Request->get));
+		$template->setAttribute("results", $Response->data);
+		$template->setAttribute("pages", $Response->pages);
+		$template->setAttribute("current_page", $Response->current_page);
 		$template->setAttribute("criteria", $this->Request->get);
 	}
 }
