@@ -31,4 +31,8 @@ class DefaultController extends Controller {
 	public function about() {
 		new Core_Template("default", "default", "aboutUs");
 	}
+	
+	public function generateLogo() {
+		new Core_Template("default", "default", "logo");
+	}
 }

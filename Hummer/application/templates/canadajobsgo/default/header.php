@@ -25,7 +25,7 @@ $loading_time = Core_Utilities::startTimer();
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>
-					<img src="<?php echo Configuration::getImagePath() . "logo.png";?>"></td>
+					<img src="<?php echo Configuration::getURLPath() . "/logo.php";?>"></td>
 				<td><?php echo HTMLLayout::signIn(); ?></td>
 
 			</tr>

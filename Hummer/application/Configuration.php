@@ -21,7 +21,7 @@ class Configuration {
 	 * Place true if you are debugging sql queries
 	 * @var unknown_type
 	 */
-	private static $debug = true;
+	private static $debug = false;
 	
 	/**
 	 * Domain prefix and domain suffix are the possible tags that are going to be used
@@ -195,6 +195,10 @@ class Configuration {
 	
 	public static function getCompanyImagesPath() {
 		return self::getResourcesPath() . "images/companies/"; 
+	}
+	
+	public static function getFontsPath() {
+		return self::getResourcesPath() . "fonts/";
 	}
 	
 	public static function getAPISourcesImagesPath() {
